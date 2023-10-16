@@ -1,0 +1,22 @@
+{
+  "name": "shark-run",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/partytown": "^2.0.1",
+    "@astrojs/preact": "^3.0.1",
+    "@astrojs/sitemap": "^3.0.1",
+    "astro": "^3.2.3",
+    "astro-robots-txt": "^1.0.0",
+    "astro-seo": "^0.8.0",
+    "jotai": "^2.4.3",
+    "preact": "^10.6.5"
+  }
+}

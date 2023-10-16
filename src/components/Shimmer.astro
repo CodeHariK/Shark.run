@@ -1,0 +1,25 @@
+---
+
+---
+
+<span class="shimmer"><slot /></span>
+<style>
+    .shimmer {
+        display: inline-block;
+        -webkit-mask: linear-gradient(
+                90deg,
+                #000 30%,
+                rgba(255, 255, 255, 0.7),
+                #000 70%
+            )
+            right/300% 100%;
+        background-repeat: no-repeat;
+        animation: shimmer 5s infinite;
+    }
+
+    @keyframes shimmer {
+        100% {
+            -webkit-mask-position: left;
+        }
+    }
+</style>

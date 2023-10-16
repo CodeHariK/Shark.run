@@ -1,0 +1,35 @@
+---
+import Logo from "./Logo.astro";
+import { Soc } from "../data/Constants.astro";
+---
+
+<div class="side-images">
+    <Logo title="Fiverr" src="./logos/fiverr.svg" href={Soc.Fiverr} />
+    <Logo title="Upworks" src="./logos/upworks.svg" href={Soc.Upworks} />
+    <Logo title="Linkedin" src="./logos/linkedin.svg" href={Soc.Linkedin} />
+    <Logo title="Github" src="./logos/github.svg" href={Soc.Github} />
+    <Logo title="Twitter" src="./logos/twitter.svg" href={Soc.Twitter} />
+    <Logo title="Google" src="./logos/google.svg" href={Soc.Google} />
+    <Logo title="Hashnode" src="./logos/hashnode.svg" href={Soc.HashNode} />
+</div>
+
+<style>
+    .side-images {
+        width: 50px;
+        right: 0.4rem;
+        position: fixed;
+        padding: 2px;
+        top: 20%;
+    }
+    @media only screen and (max-width: 800px) {
+        .side-images {
+            width: 40px;
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        .side-images {
+            width: 30px;
+        }
+    }
+</style>

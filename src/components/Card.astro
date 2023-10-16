@@ -1,0 +1,71 @@
+---
+interface Props {
+    href: string;
+    src: string;
+    title?: string;
+    body?: string;
+}
+
+const { href, src: image, title, body } = Astro.props;
+---
+
+<li class="card">
+    <a title={title} href={href}>
+        <img src={image} alt={title} />
+        {title ? <h3>{title}</h3> : null}
+        {body ? <p>{body}</p> : null}
+    </a>
+</li>
+<style>
+    html {
+        --accent: #e1e1e140;
+        --accent-light: #f959f040;
+        --accent-gradient: linear-gradient(
+            180deg,
+            var(--accent) 10%,
+            var(--accent-light) 100%
+        );
+    }
+    .card {
+        /* list-style: none; */
+        display: flex;
+        text-align: center;
+        background-color: var(--accent);
+        background-image: none;
+        background-size: 400%;
+        border-radius: 8px;
+        background-position: 100%;
+    }
+    .card:is(:hover, :focus-within) {
+        transform: scale(1.05);
+        background-position: 0;
+        background-image: var(--accent-gradient);
+    }
+    .card > a {
+        width: 100%;
+        text-decoration: none;
+        line-height: 1.4;
+        padding: 1rem;
+        border-radius: 8px;
+        opacity: 0.9;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-self: center;
+        /* aspect-ratio: 1; */
+        align-items: center;
+        overflow: hidden;
+    }
+    img {
+        flex-shrink: 0;
+        min-width: min(var(--cardSize, 100%), 100%);
+        min-height: min(var(--cardSize, 100%), 100%);
+        width: min(var(--cardSize), 100%);
+        height: min(var(--cardSize), 100%);
+    }
+    @media only screen and (max-width: 800px) {
+        h3 {
+            display: none;
+        }
+    }
+</style>
