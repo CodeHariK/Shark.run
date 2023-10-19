@@ -1,8 +1,13 @@
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-![Shark.run](./public/SpaceShark.png)
+<a href="https://shark.run">
+    <p align="center">
+    <img src="./public/images/SpaceShark512.webp" alt='Shark.run' />
+    </p>
+    <h1 align="center">Shark.run</h1>
+</a>
 
 [png image from pngtree.com](https://pngtree.com/freepng/astronauts-ride-a-shark-in-space-with-the-planets-artwork-vector_6093370.html)
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
 # Astro Starter Kit: Basics
 

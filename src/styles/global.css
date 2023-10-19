@@ -15,6 +15,7 @@ html {
     height: 100%;
     font-family: Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
     color: #fdebf3;
+    /* background-color: #000000; */
     background-image:  radial-gradient(#713e73 0.8px, transparent 0.8px), radial-gradient(#713e73 0.8px, #080808 0.8px);
     background-size: 32px 32px;
     background-position: 0 0,16px 16px;
@@ -24,6 +25,7 @@ html.light {
     background-image:  radial-gradient(#fad7ff 0.9px, transparent 0.9px), radial-gradient(#fad7ff 0.9px, #ffffff 0.9px);
 }
 body {
+    height: 100%;
     margin: 0 auto;
     display: flex;
     /* flex: 1 1 auto; */
@@ -75,14 +77,14 @@ h2 {
     margin-bottom: 1rem;
 }
 h3 {
-    margin: .7rem 0 .3rem 0;
+    margin: 1.2rem 0 .3rem 0;
     font-size: calc(var(--fh3) * var(--fz));
 }
 p {
     font-size: calc(var(--fp) * var(--fz));
     hyphens: auto;
     line-height: 1.2rem;
-    margin: .1rem 0;
+    margin: .2rem 0;
 }
 a {    
     color: #fdebf3;
@@ -141,7 +143,7 @@ a {
 @media only screen and (max-width: 700px) {
     :root {
         --mw: 500px;
-        --fz: .81;
+        --fz: .85;
         /* --fp: .7rem; */
     }
     .nav-links a, footer h3 {
