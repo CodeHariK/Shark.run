@@ -1,4 +1,3 @@
----
 export const Urls = {
     SeoImg: "/logos/seo.webp",
     LogoImg: "/logos/AstroShark.svg",
@@ -40,6 +39,3 @@ export const StructuredSchema = JSON.stringify({
         Soc.Google,
     ],
 });
----
-
----

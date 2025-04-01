@@ -1,0 +1,129 @@
+// ---
+// import { ViewTransitions } from "astro:transitions";
+// import { fade } from "astro:transitions";
+// import { SEO } from "astro-seo";
+// import { Soc, Urls, StructuredSchema } from "../data/Constants.ts";
+// import "../styles/global.css";
+
+// interface Props {
+// 	title: string;
+// 	overflow?: boolean;
+// 	center?: boolean;
+// }
+
+// const { title, overflow, center } = Astro.props;
+
+// < !doctype html >
+// 	<html transition:animate="none" lang="en">
+// 		<head>
+// 			<meta charset="utf-8" />
+// 			<!-- <meta name="description" content={seoDescription} /> -->
+// 			<meta name="viewport" content="width=device-width" />
+// 			<link rel="icon" type="image/svg+xml" href={Urls.LogoImg} />
+// 			<link rel="apple-touch-icon" href={Urls.LogoImg} />
+// 			<meta name="robots" content="index, follow" />
+// 			<link rel="sitemap" href="/sitemap-index.xml" />
+// 			<link rel="preconnect" href="https://fonts.googleapis.com" />
+// 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+// 			<meta
+// 				name="keywords"
+// 				content="Flutter, Firebase, cross-platform app, developer, mobile app, real-time data, cloud firestore, cloud function, authentication, security rules, ios, android, web, cloud, cost-effective, stunning, performance, expertise, figma, stunning, time, commited, consistent"
+// 			/>
+
+// 			<script type="application/ld+json" set:html={StructuredSchema} />
+// 			<link
+// 				rel="preload"
+// 				href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+// 				as="style"
+// 				onload="
+// 			this.onload = null; this.rel = 'stylesheet'
+// 			"
+// 			/>
+// 			<noscript
+// 			><link
+// 					href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+// 					rel="stylesheet"
+// 				/></noscript
+// 			>
+// 			<meta name="generator" content={Astro.generator} />
+// 			<title>
+// 				{title}
+// 			</title>
+// 			<ViewTransitions />
+
+// 			<SEO
+// 				title={Soc.SeoTitle}
+// 				description={Soc.SeoDescription}
+// 				canonical={Soc.SharkRun}
+// 				openGraph={{
+// 					basic: {
+// 						title: Soc.SeoTitle,
+// 						type: "website",
+// 						image: Urls.SeoImg,
+// 						url: Soc.SharkRun,
+// 					},
+// 					optional: {
+// 						locale: "en_IN",
+// 						siteName: Soc.HariKrishnan,
+// 					},
+// 				}}
+// 				twitter={{
+// 					creator: Soc.CodeHariK,
+// 					card: "summary_large_image",
+// 					site: Soc.CodeHariK,
+// 					title: Soc.SeoTitle,
+// 					description: Soc.SeoTitle,
+// 					image: Urls.SeoImg,
+// 					imageAlt: Soc.SeoTitle,
+// 				}}
+// 				extend={{
+// 					// extending the default link tags
+// 					link: [{ rel: "icon", href: Urls.LogoImg }],
+// 					// extending the default meta tags
+// 					meta: [],
+// 				}}
+// 			/>
+
+// 			<script
+// 				type="text/partytown"
+// 				src="https://www.googletagmanager.com/gtag/js?id=G-XMLMEH6ZRW"
+// 			></script>
+// 			<script type="text/partytown">
+// 				window.dataLayer = window.dataLayer || [];
+// 				function gtag() {
+// 					dataLayer.push(arguments);
+// 			}
+// 				gtag("js", new Date());
+// 				gtag("config", "G-XMLMEH6ZRW");
+// 			</script>
+// 		</head>
+// 		<body>
+// 			<Header />
+// 			<main
+// 				class:list={[{ overflow, center }]}
+// 				transition:animate={fade({ duration: "0.4s" })}
+// 			>
+// 				<article class:list={[{ center }]}>
+// 					<slot />
+// 				</article>
+// 			</main>
+// 			<Footer />
+// 			<script>
+// 				function colorMode() {
+// 				if (
+// 				localStorage.theme === "light" ||
+// 				(!("theme" in localStorage) &&
+// 				window.matchMedia("(prefers-color-scheme: light)")
+// 				.matches)
+// 				) {
+// 					document.documentElement.classList.add("light");
+// 				} else {
+// 					document.documentElement.classList.remove("light");
+// 				}
+// 			}
+
+// 				colorMode();
+// 				document.addEventListener("astro:after-swap", colorMode);
+// 			</script>
+// 		</body>
+// 	</html>
