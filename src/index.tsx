@@ -2,10 +2,11 @@ import { render } from "solid-js/web";
 import { Router, type RouteDefinition } from "@solidjs/router";
 import { createSignal } from "solid-js";
 
-import "./css/app.css";
 import { Blog } from "./pages/storybook";
 
-// import "solgaleo/solgaleo.css"
+import "solgaleo/solgaleo.css"
+
+import "./index.css";
 
 export const routes: RouteDefinition[] = [
     {
