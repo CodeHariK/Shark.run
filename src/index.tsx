@@ -1,46 +1,17 @@
-import { render } from "solid-js/web";
-import { Router, type RouteDefinition } from "@solidjs/router";
-import { createSignal } from "solid-js";
+import { Route, Router } from "@solidjs/router";
 
-import { Blog } from "./pages/storybook";
+import { Practice } from "./practice";
+import { render } from "solid-js/web";
+import { Welcome } from "./welcome";
 
 import "solgaleo/solgaleo.css"
 
-import "./index.css";
+import * as SOL from "solgaleo"
 
-export const routes: RouteDefinition[] = [
-    {
-        path: "/",
-        component: Blog,
-    },
-    {
-        path: "/routes",
-        component: RouteList,
-    },
-];
-
-function RouteList() {
-    const [iframeSrc, setIframeSrc] = createSignal("/test");
-
-    return (
-        <div class="w-full flex flex-row h-screen">
-            <span class="p-4">
-                {routes.map((e) => (
-                    <>
-                        <p class="underline" onclick={() => setIframeSrc(e.path)}>
-                            {e.path}
-                        </p>
-                    </>
-                ))}
-                <p class="text-red-400">{iframeSrc()}</p>
-            </span>
-            <iframe src={iframeSrc()} class="w-full" />
-        </div>
-    );
-}
-render(
-    () => (
-        <Router>{routes}</Router>
-    ),
-    document.body!,
-);
+render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
+    <Router base="/">
+        <Route path={"/"} component={Welcome} />
+        <Route path={"/blog"} component={Practice} />
+    </Router>
+</SOL.SolProvider>,
+    document.body!)

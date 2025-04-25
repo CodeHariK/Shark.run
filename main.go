@@ -17,7 +17,7 @@ func main() {
 
 	http.Handle("/", fileServer)
 
-	port := ":4321"
+	port := ":4000"
 	log.Printf("Serving %s on http://localhost%s\n", dir, port)
 	log.Fatal(http.ListenAndServe(port, nil))
 }

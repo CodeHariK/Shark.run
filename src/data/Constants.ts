@@ -7,10 +7,9 @@ export const Soc = {
     CodeHariK: "@codeharik",
     HariKrishnan: "Hari Krishnan",
 
-    JobTitle: "Flutter Firebase Freelance Developer",
-    SeoTitle: "Hari Krishnan : Flutter Firebase Freelance Developer",
-    SeoDescription:
-        "Crafting beautiful, cost-effective, high-performance cross-platform mobile apps for Android and iOS. Proven expertise for your project's success.",
+    JobTitle: "Code Developer",
+    SeoTitle: "Hari Krishnan : Code Developer",
+    SeoDescription: "Coding, Witch Craft and Dark Magic",
 
     SharkRun: "https://shark.run",
     Linkedin: "https://www.linkedin.com/in/codeharik",
@@ -19,9 +18,7 @@ export const Soc = {
     Github: "https://www.github.com/codeharik",
     Blog: "https://blog.shark.run",
     HashNode: "https://hashnode.com/@CodeHariK",
-    Fiverr: "https://www.fiverr.com/codeharik_dev",
     Discord: "https://discord.gg/2SECQVJj",
-    Upworks: "https://www.github.com/codeharik",
 };
 
 export const StructuredSchema = JSON.stringify({
