@@ -35,14 +35,35 @@ let Docs: { element: JSX.Element, doc: string, data: string }[] = [
         doc: "C++",
         data: ``,
         element: <Code lang="ts" code={`
+
+vector<int> ans;
+for(int i = 0; i < k; i++) {
+    ans.push_back(heap.top().second);
+}
+
 map<int, string> orderedMap;
 unordered_map<int, string> unorderedMap;
 
-insert({key, value}), at(loc), find(key), erase(key), end(), size(), empty()
+map[n]
+insert({key, value}), 
+at(loc), 
+find(key), 
+erase(key), 
+end(), 
+size(), 
+empty()
 
 for (const auto& pair : map) {
     std::cout << pair.first << ": " << pair.second << std::endl;
 }
+
+priority_queue<pair<int,int>> heap;
+for(auto [key, val]: count)
+{
+    heap.push({val, key});
+}
+heap.pop();
+
 `} />
     },
     {
