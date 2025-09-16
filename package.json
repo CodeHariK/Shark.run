@@ -9,17 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rollup/rollup-darwin-x64": "^4.50.2",
     "@solidjs/router": "^0.15.3",
     "install": "^0.13.0",
-    "prismjs": "^1.30.0",
     "solgaleo": "link:solgaleo",
-    "solid-js": "^1.9.5"
+    "solid-js": "^1.9.9",
+    "wgpu-matrix": "^3.4.0"
   },
   "devDependencies": {
-    "@types/prismjs": "^1.26.5",
-    "@types/bun": "^1.2.10",
+    "@types/bun": "^1.2.22",
+    "@webgpu/types": "^0.1.65",
     "typescript": "~5.7.3",
-    "vite": "^6.3.3",
-    "vite-plugin-solid": "^2.11.6"
+    "vite": "^6.3.6",
+    "vite-plugin-solid": "^2.11.8"
   }
 }

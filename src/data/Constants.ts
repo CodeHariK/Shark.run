@@ -1,6 +1,6 @@
 export const Urls = {
     SeoImg: "/logos/seo.webp",
-    LogoImg: "/logos/AstroShark.svg",
+    LogoImg: "/logos/Shark.svg",
 };
 
 export const Soc = {
