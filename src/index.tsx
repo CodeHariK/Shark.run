@@ -10,6 +10,9 @@ import * as SOL from "solgaleo"
 import { Canvas } from "./game/Canvas";
 import JellyCarPage from "./jellycar/JellyCarPage";
 import Kawaii from "./pages/kawaii";
+import Nintendo1 from "./pages/nintendo1";
+import Nintendo2 from "./pages/nintendo2";
+import Haunt from "./pages/haunt";
 
 render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
     <Router base="/">
@@ -17,6 +20,9 @@ render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
         <Route path={"/game"} component={Canvas} />
         <Route path={"/jellycar"} component={JellyCarPage} />
         <Route path={"/kawaii"} component={Kawaii} />
+        <Route path={"/nintendo1"} component={Nintendo1} />
+        <Route path={"/nintendo2"} component={Nintendo2} />
+        <Route path={"/haunt"} component={Haunt} />
     </Router>
 </SOL.SolProvider>,
     document.body!)

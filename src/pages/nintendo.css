@@ -1,0 +1,1034 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+    --nintendo-red: #E60012;
+    --nintendo-red-dark: #cc0010;
+    --nintendo-red-light: #ff4b58;
+    --nintendo-bg: #FFFFFF;
+    --nintendo-text: #1e293b;
+    /* slate-800 */
+    --nintendo-text-light: #64748b;
+    /* slate-500 */
+    --nintendo-zinc-900: #18181b;
+    --nintendo-zinc-400: #a1a1aa;
+
+    --font-outfit: 'Outfit', sans-serif;
+    --radius-nintendo: 12px;
+    --radius-full: 9999px;
+
+    --hero-gradient: linear-gradient(135deg, #e60012 0%, #ff4b58 100%);
+    --nintendo-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.night {
+    --nintendo-bg: #121212;
+    --nintendo-text: #e2e8f0;
+    /* slate-200 */
+    --nintendo-text-light: #94a3b8;
+    /* slate-400 */
+    --nintendo-header-bg: #18181b;
+    /* zinc-900 */
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--font-outfit);
+}
+
+body.nintendo-theme {
+    background-color: var(--nintendo-bg);
+    color: var(--nintendo-text);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Nav Styles */
+.nintendo-nav {
+    background-color: var(--nintendo-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 80rem;
+    /* 7xl */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-badge {
+    background-color: white;
+    color: var(--nintendo-red);
+    padding: 0.25rem 0.75rem;
+    font-weight: 900;
+    font-size: 1.25rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.logo-badge:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: none;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    color: white;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--nintendo-red-dark);
+}
+
+.hire-me-wrapper {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 1px solid #f87171;
+    /* red-400 */
+    padding-left: 1rem;
+}
+
+@media (min-width: 640px) {
+    .hire-me-wrapper {
+        display: flex;
+    }
+}
+
+.hire-me-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Header Styles */
+.nintendo-header {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border-bottom: 4px solid var(--nintendo-red);
+    padding: 2rem 1rem;
+}
+
+.night .nintendo-header {
+    background-color: var(--nintendo-header-bg);
+}
+
+@media (min-width: 768px) {
+    .nintendo-header {
+        padding: 4rem 1rem;
+    }
+}
+
+.header-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+    }
+}
+
+.header-content {
+    width: 100%;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .header-content {
+        width: 50%;
+    }
+}
+
+.header-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #111827;
+    /* slate-900 */
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+.night .header-title {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 3.75rem;
+    }
+}
+
+.header-title span {
+    color: var(--nintendo-red);
+    font-style: italic;
+}
+
+.header-description {
+    font-size: 1.125rem;
+    color: var(--nintendo-text-light);
+    margin-bottom: 2rem;
+    max-width: 32rem;
+}
+
+.night .header-description {
+    color: var(--nintendo-zinc-400);
+}
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--nintendo-red);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    border: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    border: 2px solid #e2e8f0;
+    /* slate-200 */
+    background: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--nintendo-text);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.night .btn-secondary {
+    border-color: #3f3f46;
+    /* zinc-700 */
+}
+
+.btn-secondary:hover {
+    background-color: #f8fafc;
+    /* slate-50 */
+}
+
+.night .btn-secondary:hover {
+    background-color: #27272a;
+    /* zinc-800 */
+}
+
+.header-visual {
+    width: 100%;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .header-visual {
+        width: 50%;
+    }
+}
+
+.video-box {
+    aspect-ratio: 16 / 9;
+    background-color: var(--nintendo-red);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: rotate(2deg);
+}
+
+.video-img {
+    width: 100%;
+    height: 100%;
+    object-cover: cover;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+.video-icon-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-icon-overlay .material-icons {
+    color: white;
+    font-size: 6rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.star-badge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: #facc15;
+    /* yellow-400 */
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: rotate(-12deg);
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-25%) rotate(-12deg);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(0) rotate(-12deg);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* Hiring Info Section */
+.hiring-section {
+    max-width: 80rem;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.hiring-banner {
+    background-color: var(--nintendo-red);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .hiring-banner {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+.banner-icon {
+    background-color: #b91c1c;
+    /* red-700 */
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-icon .material-icons {
+    font-size: 3.75rem;
+}
+
+.banner-content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .banner-content {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.banner-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.banner-subtitle {
+    color: #fee2e2;
+    /* red-100 */
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.chat-btn {
+    background-color: white;
+    color: var(--nintendo-red);
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+    .chat-btn {
+        align-self: center;
+    }
+}
+
+.chat-btn:hover {
+    background-color: #f1f5f9;
+}
+
+.banner-decoration {
+    display: none;
+    width: 12rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .banner-decoration {
+        display: block;
+    }
+}
+
+.decoration-skew {
+    position: absolute;
+    inset: 0;
+    background-color: #dc2626;
+    /* red-600 */
+    opacity: 0.2;
+    transform: skewX(-12deg);
+}
+
+.decoration-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+}
+
+.decoration-icon .material-icons {
+    font-size: 8rem;
+}
+
+/* Projects Section */
+.projects-section {
+    max-width: 80rem;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    border-left: 8px solid var(--nintendo-red);
+    padding-left: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+
+.see-all {
+    color: var(--nintendo-red);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.see-all:hover {
+    text-decoration: underline;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.night .project-card {
+    background-color: #27272a;
+    border-color: #3f3f46;
+}
+
+.project-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-wrapper {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    background-color: #3b82f6;
+    /* example placeholder */
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-card:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--nintendo-red);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.125rem;
+}
+
+.popular-badge {
+    background-color: #facc15;
+    /* yellow-400 */
+    color: #0f172a;
+    /* slate-900 */
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-stack {
+    font-size: 0.875rem;
+    color: var(--nintendo-text-light);
+    margin-bottom: 1rem;
+}
+
+.night .card-stack {
+    color: var(--nintendo-zinc-400);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-type {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--nintendo-red);
+}
+
+.favorite-icon {
+    color: #e2e8f0;
+    cursor: pointer;
+}
+
+.night .favorite-icon {
+    color: #3f3f46;
+}
+
+/* Ecosystem Section */
+.eco-section {
+    max-width: 80rem;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.eco-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .eco-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.eco-card {
+    background-color: #f1f5f9;
+    /* slate-100 */
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+    border-bottom: 8px solid transparent;
+}
+
+.night .eco-card {
+    background-color: #27272a;
+}
+
+.eco-card:hover {
+    background-color: white;
+    border-bottom-color: var(--nintendo-red);
+}
+
+.night .eco-card:hover {
+    background-color: #3f3f46;
+}
+
+.eco-icon-box {
+    width: 8rem;
+    height: 8rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.night .eco-icon-box {
+    background-color: #18181b;
+}
+
+.eco-card:hover .eco-icon-box {
+    transform: scale(1.1);
+}
+
+.eco-icon-box .material-icons {
+    font-size: 3.75rem;
+}
+
+.eco-title {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.eco-desc {
+    font-size: 0.875rem;
+    color: var(--nintendo-text-light);
+}
+
+.night .eco-desc {
+    color: var(--nintendo-zinc-400);
+}
+
+.explore-btn {
+    margin-top: 1.5rem;
+    color: var(--nintendo-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Call to Action */
+.cta-section {
+    max-width: 80rem;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.cta-box {
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: 4px solid #27272a;
+}
+
+@media (min-width: 768px) {
+    .cta-box {
+        padding: 3rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.cta-content {
+    z-index: 10;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .cta-content {
+        text-align: left;
+    }
+}
+
+.collaboration-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .collaboration-badge {
+        justify-content: flex-start;
+    }
+}
+
+.badge-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--nintendo-red);
+    border-radius: var(--radius-full);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+}
+
+.badge-text {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+.cta-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .cta-title {
+        font-size: 3rem;
+    }
+}
+
+.cta-title span {
+    color: var(--nintendo-red);
+}
+
+.cta-desc {
+    color: #a1a1aa;
+    margin-bottom: 2rem;
+    max-width: 28rem;
+}
+
+.start-btn {
+    background-color: var(--nintendo-red);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 900;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.start-btn:hover {
+    background-color: var(--nintendo-red-dark);
+    transform: scale(1.05);
+}
+
+.cta-features {
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.feature-tag {
+    background-color: #18181b;
+    border: 1px solid #3f3f46;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.2s;
+}
+
+.feature-tag:hover {
+    background-color: #27272a;
+}
+
+.feature-tag .material-icons {
+    color: var(--nintendo-red);
+}
+
+.feature-text {
+    font-weight: 700;
+}
+
+.bg-glow-red {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16rem;
+    height: 16rem;
+    background-color: var(--nintendo-red);
+    border-radius: var(--radius-full);
+    filter: blur(100px);
+    opacity: 0.2;
+    margin-right: -8rem;
+    margin-top: -8rem;
+}
+
+.bg-glow-dark-red {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+    height: 16rem;
+    background-color: #7f1d1d;
+    border-radius: var(--radius-full);
+    filter: blur(100px);
+    opacity: 0.1;
+    margin-left: -8rem;
+    margin-bottom: -8rem;
+}
+
+/* Footer Styles */
+.nintendo-footer {
+    background-color: var(--nintendo-red);
+    color: white;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.footer-logo-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    background-color: white;
+    color: var(--nintendo-red);
+    padding: 1rem 2rem;
+    font-weight: 900;
+    font-size: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.footer-logo:hover {
+    transform: rotate(2deg);
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    border-bottom: 1px solid #f87171;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    .footer-links-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer-col-title {
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    font-size: 0.6875rem;
+    /* 11px */
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+    }
+}
+
+.footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.esrb-box {
+    background-color: white;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.esrb-img {
+    height: 1.5rem;
+    opacity: 0.8;
+}
