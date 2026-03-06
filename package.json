@@ -11,7 +11,9 @@
   "dependencies": {
     "@rollup/rollup-darwin-x64": "^4.50.2",
     "@solidjs/router": "^0.15.3",
+    "@types/matter-js": "^0.20.2",
     "install": "^0.13.0",
+    "matter-js": "^0.20.0",
     "solgaleo": "link:solgaleo",
     "solid-js": "^1.9.9",
     "wgpu-matrix": "^3.4.0"

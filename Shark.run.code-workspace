@@ -2,7 +2,13 @@
 	"folders": [
 		{
 			"path": "."
-		}
+		},
+		{
+			"path": "../solgaleo"
+		},
+		{
+			"path": "../matter-js"
+		},
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "Shark.run"
