@@ -9,6 +9,9 @@
 		{
 			"path": "../matter-js"
 		},
+		{
+			"path": "../temp"
+		},
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "Shark.run"
