@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Libre+Baskerville:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
+
+.pageWrapper {
+    --primary: #FBBF94;
+    --secondary: #5DAFA9;
+    --background-light: #FFF7F0;
+    --background-dark: #1A1A1A;
+    --text-main: #2D2D2D;
+    --accent-black: #000000;
+
+    --font-display: 'Libre Baskerville', serif;
+    --font-body: 'Nunito', sans-serif;
+    --font-spooky: 'Creepster', cursive;
+
+    background-color: var(--background-light);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:global(html.night) .pageWrapper {
+    background-color: var(--background-dark);
+    color: #e5e7eb;
+    /* gray-200 */
+}
+
+/* Nav Styles */
+.nav {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logoIcon {
+    font-size: 1.875rem;
+    color: var(--accent-black);
+    transform: rotate(-12deg);
+}
+
+:global(html.night) .logoIcon {
+    color: var(--primary);
+}
+
+.logoText {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.025em;
+}
+
+:global(html.night) .logoText {
+    color: white;
+}
+
+.navLinks {
+    display: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navLinks {
+        display: flex;
+    }
+}
+
+.navLink {
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.navLink:hover {
+    color: var(--primary);
+}
+
+.bookBtn {
+    background-color: var(--accent-black);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+:global(html.night) .bookBtn {
+    background-color: white;
+    color: var(--accent-black);
+}
+
+.bookBtn:hover {
+    background-color: #1f2937;
+}
+
+:global(html.night) .bookBtn:hover {
+    background-color: #e5e7eb;
+}
+
+.mobileMenuBtn {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .mobileMenuBtn {
+        display: none;
+    }
+}
+
+/* Main content */
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Hero Section */
+.heroCard {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 600px;
+    position: relative;
+    border: 1px solid #f3f4f6;
+    /* gray-100 */
+}
+
+:global(html.night) .heroCard {
+    background-color: #1f2937;
+    /* gray-800 */
+    border-color: #374151;
+    /* gray-700 */
+}
+
+@media (min-width: 1024px) {
+    .heroCard {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.heroLeft {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .heroLeft {
+        padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .heroLeft {
+        padding: 4rem;
+    }
+}
+
+.heroPatternLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8rem;
+    height: 8rem;
+    opacity: 0.1;
+    pointer-events: none;
+    fill: currentColor;
+}
+
+:global(html.night) .heroPatternLeft {
+    color: white;
+}
+
+.batIconHero {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--accent-black);
+    animation: bounce 1s infinite;
+}
+
+:global(html.night) .batIconHero {
+    color: var(--primary);
+}
+
+.heroTitle {
+    font-size: 3rem;
+    font-family: var(--font-display);
+    color: var(--accent-black);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+:global(html.night) .heroTitle {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .heroTitle {
+        font-size: 3.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .heroTitle {
+        font-size: 4.5rem;
+    }
+}
+
+.italic {
+    font-style: italic;
+}
+
+.heroDesc {
+    color: #4b5563;
+    /* gray-600 */
+    margin-bottom: 2rem;
+    max-width: 28rem;
+    font-size: 1.125rem;
+    line-height: 1.625;
+}
+
+:global(html.night) .heroDesc {
+    color: #d1d5db;
+    /* gray-300 */
+}
+
+.featuresList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.featureRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.iconCircle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.secondaryBg {
+    background-color: var(--secondary);
+}
+
+.primaryBg {
+    background-color: var(--primary);
+    color: var(--accent-black);
+}
+
+.featureText {
+    font-weight: 700;
+    color: #1f2937;
+    /* gray-800 */
+}
+
+:global(html.night) .featureText {
+    color: #e5e7eb;
+    /* gray-200 */
+}
+
+.btnGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .btnGroup {
+        flex-direction: row;
+    }
+}
+
+.btnActionPrimary {
+    background-color: var(--accent-black);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+:global(html.night) .btnActionPrimary {
+    background-color: var(--primary);
+    color: var(--accent-black);
+}
+
+.btnActionPrimary:hover {
+    transform: scale(1.05);
+    background-color: #1f2937;
+}
+
+:global(html.night) .btnActionPrimary:hover {
+    background-color: rgba(251, 191, 148, 0.9);
+}
+
+.btnActionSecondary {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border: 2px solid var(--accent-black);
+    background-color: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+:global(html.night) .btnActionSecondary {
+    border-color: #9ca3af;
+    /* gray-400 */
+    color: #e5e7eb;
+}
+
+.btnActionSecondary:hover {
+    background-color: #f9fafb;
+}
+
+:global(html.night) .btnActionSecondary:hover {
+    background-color: #374151;
+    /* gray-700 */
+}
+
+.heroPatternBottom {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    transform: translateY(50%);
+    opacity: 0.2;
+    pointer-events: none;
+    display: none;
+    fill: currentColor;
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .heroPatternBottom {
+        display: block;
+    }
+}
+
+:global(html.night) .heroPatternBottom {
+    opacity: 0.4;
+    color: #6b7280;
+}
+
+.heroRight {
+    background-color: var(--primary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+:global(html.night) .heroRight {
+    background-color: #374151;
+}
+
+.heroCircleBg {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(25%);
+    width: 120%;
+    height: 120%;
+    background-color: #FFCCAA;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+:global(html.night) .heroCircleBg {
+    background-color: #4b5563;
+}
+
+.heroSpiderWeb {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    height: 16rem;
+    width: 12rem;
+    z-index: 0;
+    opacity: 0.8;
+    fill: currentColor;
+    color: var(--accent-black);
+}
+
+:global(html.night) .heroSpiderWeb {
+    color: #111827;
+}
+
+.heroGrid {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12rem;
+    height: 12rem;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.heroIllustration {
+    position: relative;
+    z-index: 10;
+    width: 16rem;
+    height: 20rem;
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+}
+
+@media (min-width: 768px) {
+    .heroIllustration {
+        width: 20rem;
+        height: 24rem;
+    }
+}
+
+.floatingSkull {
+    position: absolute;
+    top: 6rem;
+    left: 2.5rem;
+    animation: bounce 3s infinite;
+}
+
+.skullIcon {
+    color: #EAD0A3;
+    font-size: 3rem;
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
+    transform: rotate(12deg);
+}
+
+:global(html.night) .skullIcon {
+    color: #9ca3af;
+}
+
+/* Sub-footer inside card */
+.heroFooterCard {
+    grid-column: 1 / -1;
+    background-color: var(--accent-black);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    border-top: 1px solid #1f2937;
+}
+
+@media (min-width: 640px) {
+    .heroFooterCard {
+        flex-direction: row;
+    }
+}
+
+.footerLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .footerLeft {
+        margin-bottom: 0;
+    }
+}
+
+.footerRight {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.socialIcon {
+    font-size: 1.125rem;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.socialIcon:hover {
+    color: var(--primary);
+}
+
+.footerText {
+    opacity: 0.75;
+}
+
+/* Feature Grid */
+.infoGrid {
+    margin-top: 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .infoGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.infoCard {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid var(--primary);
+    transition: transform 0.3s;
+}
+
+:global(html.night) .infoCard {
+    background-color: #1f2937;
+    border-bottom-color: var(--primary);
+}
+
+.infoCard:nth-child(2) {
+    border-bottom-color: var(--secondary);
+}
+
+.infoCard:nth-child(3) {
+    border-bottom-color: var(--accent-black);
+}
+
+:global(html.night) .infoCard:nth-child(3) {
+    border-bottom-color: white;
+}
+
+.infoCard:hover {
+    transform: translateY(-0.5rem);
+}
+
+.iconBox {
+    width: 3rem;
+    height: 3rem;
+    background-color: #f3f4f6;
+    /* gray-100 */
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+:global(html.night) .iconBox {
+    background-color: #374151;
+}
+
+.infoTitle {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+:global(html.night) .infoTitle {
+    color: white;
+}
+
+.infoDesc {
+    color: #6b7280;
+    /* gray-500 */
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+:global(html.night) .infoDesc {
+    color: #9ca3af;
+}
+
+.infoLink {
+    color: var(--accent-black);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+:global(html.night) .infoLink {
+    color: var(--primary);
+}
+
+.infoLink:hover {
+    text-decoration: underline;
+}
+
+/* Page Footer */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+:global(html.night) .footer {
+    color: #9ca3af;
+}
+
+/* Utility Classes */
+.svgFill {
+    fill: currentColor;
+}
+
+.svgWH {
+    width: 100%;
+    height: 100%;
+}
+
+.svgStroke {
+    stroke: currentColor;
+}
+
+.primaryColor {
+    color: var(--primary) !important;
+}
+
+.secondaryColor {
+    color: var(--secondary) !important;
+}
+
+/* Animations */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}

@@ -1,7 +1,7 @@
-import { onMount, createSignal, Show, For } from "solid-js";
-import "./nintendo.css";
+import { onMount, createSignal, Show, For, Component } from "solid-js";
+import styles from "./nintendo.module.css";
 
-export const Nintendo1 = () => {
+const Nintendo1: Component = () => {
     const [isDark, setIsDark] = createSignal(false);
 
     onMount(() => {
@@ -65,115 +65,115 @@ export const Nintendo1 = () => {
     ];
 
     return (
-        <div class="nintendo-theme">
-            <nav class="nintendo-nav">
-                <div class="nav-container">
-                    <div class="nav-left">
-                        <div class="logo-badge">DEV</div>
-                        <div class="nav-links">
-                            <a class="nav-link" href="#">
+        <div class={styles["nintendo-page-wrapper"]}>
+            <nav class={styles["nintendo-nav"]}>
+                <div class={styles["nav-container"]}>
+                    <div class={styles["nav-left"]}>
+                        <div class={styles["logo-badge"]}>DEV</div>
+                        <div class={styles["nav-links"]}>
+                            <a class={styles["nav-link"]} href="#">
                                 <span class="material-icons">explore</span> Projects
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class={styles["nav-link"]} href="#">
                                 <span class="material-icons">code</span> Stack
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class={styles["nav-link"]} href="#">
                                 <span class="material-icons">person</span> About
                             </a>
                         </div>
                     </div>
-                    <div class="nav-right">
-                        <button class="theme-toggle" onClick={toggleTheme}>
+                    <div class={styles["nav-right"]}>
+                        <button class={styles["theme-toggle"]} onClick={toggleTheme}>
                             <span class="material-icons">{isDark() ? "light_mode" : "dark_mode"}</span>
                         </button>
-                        <div class="hire-me-wrapper">
+                        <div class={styles["hire-me-wrapper"]}>
                             <span class="material-icons">login</span>
-                            <span class="hire-me-text">Hire Me</span>
+                            <span class={styles["hire-me-text"]}>Hire Me</span>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            <header class="nintendo-header">
-                <div class="header-container">
-                    <div class="header-content">
-                        <h1 class="header-title">
+            <header class={styles["nintendo-header"]}>
+                <div class={styles["header-container"]}>
+                    <div class={styles["header-content"]}>
+                        <h1 class={styles["header-title"]}>
                             Build, Play, and <span>Create.</span>
                         </h1>
-                        <p class="header-description">
+                        <p class={styles["header-description"]}>
                             Full-stack developer crafting high-performance digital experiences with a touch of fun and a lot of energy.
                         </p>
-                        <div class="header-actions">
-                            <button class="btn-primary">
+                        <div class={styles["header-actions"]}>
+                            <button class={styles["btn-primary"]}>
                                 View Projects <span class="material-icons">arrow_forward</span>
                             </button>
-                            <button class="btn-secondary">Get in Touch</button>
+                            <button class={styles["btn-secondary"]}>Get in Touch</button>
                         </div>
                     </div>
-                    <div class="header-visual">
-                        <div class="video-box">
+                    <div class={styles["header-visual"]}>
+                        <div class={styles["video-box"]}>
                             <img
                                 alt="Abstract colorful gaming setup"
-                                class="video-img"
+                                class={styles["video-img"]}
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lxHQkXQ0-WMp5g9MZrg5UwWPYQ8ZeRexqhF4eJtxBNppD-AFqbGKnPYLjZVRoCaxWdi1hC-FNNfNu1xXHZdyhqbBCq_1zUG13xbFdzJI_S6RkBJaGMVUY6B4L8TJFOvYPR_V_K-baaYoOLWlVOmjI42ZoOLfiHuggH7SJWfh71SvEkVLJzQ6bFjy4uWsNsoknL6pqiND7T3B4HnWWVUz6gdhrHtQyl3cbT_R09ch9YWcNwkCezP3A4E5C4MaM5D6ubwxcIJ3admj"
                             />
-                            <div class="video-icon-overlay">
+                            <div class={styles["video-icon-overlay"]}>
                                 <span class="material-icons">videogame_asset</span>
                             </div>
                         </div>
-                        <div class="star-badge">
+                        <div class={styles["star-badge"]}>
                             <span class="material-icons" style="color: white; font-size: 1.875rem;">star</span>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <section class="hiring-section">
-                <div class="hiring-banner">
-                    <div class="banner-icon">
+            <section class={styles["hiring-section"]}>
+                <div class={styles["hiring-banner"]}>
+                    <div class={styles["banner-icon"]}>
                         <span class="material-icons">campaign</span>
                     </div>
-                    <div class="banner-content">
+                    <div class={styles["banner-content"]}>
                         <div>
-                            <h2 class="banner-title">Hiring Status: Available!</h2>
-                            <p class="banner-subtitle">
+                            <h2 class={styles["banner-title"]}>Hiring Status: Available!</h2>
+                            <p class={styles["banner-subtitle"]}>
                                 Open for new freelance projects and full-time roles starting July 2024.
                             </p>
                         </div>
-                        <button class="chat-btn">Let's Chat</button>
+                        <button class={styles["chat-btn"]}>Let's Chat</button>
                     </div>
-                    <div class="banner-decoration">
-                        <div class="decoration-skew"></div>
-                        <div class="decoration-icon">
+                    <div class={styles["banner-decoration"]}>
+                        <div class={styles["decoration-skew"]}></div>
+                        <div class={styles["decoration-icon"]}>
                             <span class="material-icons">work</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="projects-section">
-                <div class="section-header">
-                    <h3 class="section-title">Featured Projects</h3>
-                    <a class="see-all" href="#">See all projects →</a>
+            <section class={styles["projects-section"]}>
+                <div class={styles["section-header"]}>
+                    <h3 class={styles["section-title"]}>Featured Projects</h3>
+                    <a class={styles["see-all"]} href="#">See all projects →</a>
                 </div>
-                <div class="projects-grid">
+                <div class={styles["projects-grid"]}>
                     <For each={projects}>
                         {(project) => (
-                            <div class="project-card">
-                                <div class={`card-img-wrapper ${project.color}`}>
-                                    <img alt={project.title} class="card-img" src={project.img} />
+                            <div class={styles["project-card"]}>
+                                <div class={`${styles["card-img-wrapper"]} ${project.color}`}>
+                                    <img alt={project.title} class={styles["card-img"]} src={project.img} />
                                     <Show when={project.badge}>
-                                        <div class={`card-badge ${project.badgeClass || ""}`}>
+                                        <div class={`${styles["card-badge"]} ${project.badgeClass ? styles[project.badgeClass] : ""}`}>
                                             {project.badge}
                                         </div>
                                     </Show>
                                 </div>
-                                <div class="card-content">
-                                    <h4 class="card-title">{project.title}</h4>
-                                    <p class="card-stack">{project.stack}</p>
-                                    <div class="card-footer">
-                                        <span class="card-type">{project.type}</span>
-                                        <span class="material-icons favorite-icon">favorite_border</span>
+                                <div class={styles["card-content"]}>
+                                    <h4 class={styles["card-title"]}>{project.title}</h4>
+                                    <p class={styles["card-stack"]}>{project.stack}</p>
+                                    <div class={styles["card-footer"]}>
+                                        <span class={styles["card-type"]}>{project.type}</span>
+                                        <span class={`material-icons ${styles["favorite-icon"]}`}>favorite_border</span>
                                     </div>
                                 </div>
                             </div>
@@ -182,130 +182,130 @@ export const Nintendo1 = () => {
                 </div>
             </section>
 
-            <section class="eco-section">
-                <h3 class="section-title" style="margin-bottom: 2rem;">Dev Ecosystem</h3>
-                <div class="eco-grid">
-                    <div class="eco-card">
-                        <div class="eco-icon-box">
+            <section class={styles["eco-section"]}>
+                <h3 class={styles["section-title"]} style="margin-bottom: 2rem;">Dev Ecosystem</h3>
+                <div class={styles["eco-grid"]}>
+                    <div class={styles["eco-card"]}>
+                        <div class={styles["eco-icon-box"]}>
                             <span class="material-icons" style="color: #3b82f6;">language</span>
                         </div>
-                        <h4 class="eco-title">The Web Suite</h4>
-                        <p class="eco-desc">React, Next.js, TypeScript, and modern CSS frameworks.</p>
-                        <button class="explore-btn">Explore Stack →</button>
+                        <h4 class={styles["eco-title"]}>The Web Suite</h4>
+                        <p class={styles["eco-desc"]}>React, Next.js, TypeScript, and modern CSS frameworks.</p>
+                        <button class={styles["explore-btn"]}>Explore Stack →</button>
                     </div>
-                    <div class="eco-card">
-                        <div class="eco-icon-box">
+                    <div class={styles["eco-card"]}>
+                        <div class={styles["eco-icon-box"]}>
                             <span class="material-icons" style="color: #22c55e;">storage</span>
                         </div>
-                        <h4 class="eco-title">The Engine Room</h4>
-                        <p class="eco-desc">Node.js, PostgreSQL, GraphQL, and AWS Cloud Infrastructure.</p>
-                        <button class="explore-btn">Explore Stack →</button>
+                        <h4 class={styles["eco-title"]}>The Engine Room</h4>
+                        <p class={styles["eco-desc"]}>Node.js, PostgreSQL, GraphQL, and AWS Cloud Infrastructure.</p>
+                        <button class={styles["explore-btn"]}>Explore Stack →</button>
                     </div>
-                    <div class="eco-card">
-                        <div class="eco-icon-box">
+                    <div class={styles["eco-card"]}>
+                        <div class={styles["eco-icon-box"]}>
                             <span class="material-icons" style="color: #a855f7;">smartphone</span>
                         </div>
-                        <h4 class="eco-title">Pocket Apps</h4>
-                        <p class="eco-desc">Cross-platform development with React Native and Expo.</p>
-                        <button class="explore-btn">Explore Stack →</button>
+                        <h4 class={styles["eco-title"]}>Pocket Apps</h4>
+                        <p class={styles["eco-desc"]}>Cross-platform development with React Native and Expo.</p>
+                        <button class={styles["explore-btn"]}>Explore Stack →</button>
                     </div>
                 </div>
             </section>
 
-            <section class="cta-section">
-                <div class="cta-box">
-                    <div class="cta-content">
-                        <div class="collaboration-badge">
-                            <div class="badge-dot"></div>
-                            <span class="badge-text">Open for Collaborations</span>
+            <section class={styles["cta-section"]}>
+                <div class={styles["cta-box"]}>
+                    <div class={styles["cta-content"]}>
+                        <div class={styles["collaboration-badge"]}>
+                            <div class={styles["badge-dot"]}></div>
+                            <span class={styles["badge-text"]}>Open for Collaborations</span>
                         </div>
-                        <h2 class="cta-title">
+                        <h2 class={styles["cta-title"]}>
                             LEVEL UP YOUR<br /><span>BUSINESS.</span>
                         </h2>
-                        <p class="cta-desc">
+                        <p class={styles["cta-desc"]}>
                             Whether you're a startup or an established company, I bring a creative and technical edge to every project.
                         </p>
-                        <button class="start-btn">START A PROJECT</button>
+                        <button class={styles["start-btn"]}>START A PROJECT</button>
                     </div>
-                    <div class="cta-features">
-                        <div class="feature-tag">
+                    <div class={styles["cta-features"]}>
+                        <div class={styles["feature-tag"]}>
                             <span class="material-icons">speed</span>
-                            <span class="feature-text">Fast Delivery</span>
+                            <span class={styles["feature-text"]}>Fast Delivery</span>
                         </div>
-                        <div class="feature-tag">
+                        <div class={styles["feature-tag"]}>
                             <span class="material-icons">brush</span>
-                            <span class="feature-text">Pixel Perfect</span>
+                            <span class={styles["feature-text"]}>Pixel Perfect</span>
                         </div>
-                        <div class="feature-tag">
+                        <div class={styles["feature-tag"]}>
                             <span class="material-icons">security</span>
-                            <span class="feature-text">Clean Code</span>
+                            <span class={styles["feature-text"]}>Clean Code</span>
                         </div>
-                        <div class="feature-tag">
+                        <div class={styles["feature-tag"]}>
                             <span class="material-icons">support_agent</span>
-                            <span class="feature-text">24/7 Support</span>
+                            <span class={styles["feature-text"]}>24/7 Support</span>
                         </div>
                     </div>
-                    <div class="bg-glow-red"></div>
-                    <div class="bg-glow-dark-red"></div>
+                    <div class={styles["bg-glow-red"]}></div>
+                    <div class={styles["bg-glow-dark-red"]}></div>
                 </div>
             </section>
 
-            <footer class="nintendo-footer">
-                <div class="footer-logo-box">
-                    <div class="footer-logo">DEV</div>
+            <footer class={styles["nintendo-footer"]}>
+                <div class={styles["footer-logo-box"]}>
+                    <div class={styles["footer-logo"]}>DEV</div>
                 </div>
-                <div class="footer-links-grid" style="max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem;">
+                <div class={styles["footer-links-grid"]} style="max-width: 80rem; margin: 0 auto; padding: 0 1rem 4rem;">
                     <div>
-                        <h5 class="footer-col-title">Navigation</h5>
-                        <ul class="footer-ul">
-                            <li class="footer-li"><a href="#">Home</a></li>
-                            <li class="footer-li"><a href="#">Featured Projects</a></li>
-                            <li class="footer-li"><a href="#">Skillset</a></li>
-                            <li class="footer-li"><a href="#">Resume</a></li>
+                        <h5 class={styles["footer-col-title"]}>Navigation</h5>
+                        <ul class={styles["footer-ul"]}>
+                            <li class={styles["footer-li"]}><a href="#">Home</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Featured Projects</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Skillset</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Resume</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="footer-col-title">Social</h5>
-                        <ul class="footer-ul">
-                            <li class="footer-li"><a href="#">GitHub</a></li>
-                            <li class="footer-li"><a href="#">LinkedIn</a></li>
-                            <li class="footer-li"><a href="#">Twitter / X</a></li>
-                            <li class="footer-li"><a href="#">YouTube</a></li>
+                        <h5 class={styles["footer-col-title"]}>Social</h5>
+                        <ul class={styles["footer-ul"]}>
+                            <li class={styles["footer-li"]}><a href="#">GitHub</a></li>
+                            <li class={styles["footer-li"]}><a href="#">LinkedIn</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Twitter / X</a></li>
+                            <li class={styles["footer-li"]}><a href="#">YouTube</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="footer-col-title">Resources</h5>
-                        <ul class="footer-ul">
-                            <li class="footer-li"><a href="#">Blog</a></li>
-                            <li class="footer-li"><a href="#">Case Studies</a></li>
-                            <li class="footer-li"><a href="#">Style Guide</a></li>
-                            <li class="footer-li"><a href="#">Documentation</a></li>
+                        <h5 class={styles["footer-col-title"]}>Resources</h5>
+                        <ul class={styles["footer-ul"]}>
+                            <li class={styles["footer-li"]}><a href="#">Blog</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Case Studies</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Style Guide</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Documentation</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="footer-col-title">Contact</h5>
-                        <ul class="footer-ul">
-                            <li class="footer-li"><a href="#">Email Me</a></li>
-                            <li class="footer-li"><a href="#">Calendly</a></li>
-                            <li class="footer-li"><a href="#">Request Quote</a></li>
-                            <li class="footer-li"><a href="#">Privacy Policy</a></li>
+                        <h5 class={styles["footer-col-title"]}>Contact</h5>
+                        <ul class={styles["footer-ul"]}>
+                            <li class={styles["footer-li"]}><a href="#">Email Me</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Calendly</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Request Quote</a></li>
+                            <li class={styles["footer-li"]}><a href="#">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="footer-bottom" style="max-width: 80rem; margin: 0 auto; padding: 2rem 1rem 0;">
-                    <div class="footer-bottom-left">
+                <div class={styles["footer-bottom"]} style="max-width: 80rem; margin: 0 auto; padding: 2rem 1rem 0;">
+                    <div class={styles["footer-bottom-left"]}>
                         <span>© 2024 Developer Portfolio. All rights reserved.</span>
                         <a href="#" style="color: white; text-decoration: none;">Terms of Use</a>
                     </div>
-                    <div class="footer-bottom-right">
-                        <div class="lang-selector">
+                    <div class={styles["footer-bottom-right"]}>
+                        <div class={styles["lang-selector"]}>
                             <span class="material-icons" style="font-size: 1rem;">public</span>
                             <span>English (United States)</span>
                         </div>
-                        <div class="esrb-box">
+                        <div class={styles["esrb-box"]}>
                             <img
                                 alt="ESRB Everyone Rating"
-                                class="esrb-img"
+                                class={styles["esrb-img"]}
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfH92VYBpp2Xjd0e-9WraCiqrl18CrTs4pvDeQ0uG_Ry8HI6-HZn_6Z-wvkwieH60YZ3gGyCBhSyF7MkF1mWpKnk2m8WoaZFnFda5zzIvmKzfOg-5SmA2xV9tulopRO0etv4y61mcVsfnByWZ5vLtEkFBYu4MaCgwygp_mdU5uFjzklbGPnaTSOY1SNvCQe7WwKE8P79F4ZCGgBla3b7lXDzVJChgyC3L8fSyPoQCYlH_oKFAJsHmHMx_x0DmKE4XAD7u8a_md1SSf"
                             />
                         </div>

@@ -1,5 +1,5 @@
 /* Base Variables & Setup */
-:root {
+.nintendo2-page-wrapper {
     --primary: #e60012;
     --bg-light: #ffffff;
     --bg-dark: #0f0f0f;
@@ -9,18 +9,22 @@
     --text-slate-400: #94a3b8;
     --border-light: #e2e8f0;
     --transition: all 0.3s ease;
-}
 
-* {
-    box-sizing: border-box;
-}
-
-body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-slate-900);
     -webkit-font-smoothing: antialiased;
+}
+
+:global(html.night) .nintendo2-page-wrapper {
+    --bg-light: #0f0f0f;
+    --text-slate-900: #f1f5f9;
+    --border-light: #334155;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .container {

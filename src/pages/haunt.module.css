@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-:root {
+/* Page Wrapper (Formerly Body) */
+.haunt-page-wrapper {
     --primary: #FF9F68;
     --background-light: #FFF3E9;
     --background-dark: #1a1a1a;
@@ -14,16 +15,7 @@
     --font-display: 'Libre Baskerville', serif;
     --font-body: 'Poppins', sans-serif;
     --font-spooky: 'Creepster', cursive;
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Base Body (Fixed Scrolling) */
-body {
     font-family: var(--font-body);
     background-color: var(--background-light);
     color: var(--text-dark);
@@ -34,13 +26,13 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-html.night body {
+:global(html.night) .haunt-page-wrapper {
     background-color: var(--background-dark);
     color: var(--text-light);
 }
 
 @media (min-width: 640px) {
-    body {
+    .haunt-page-wrapper {
         padding: 2rem;
     }
 }
@@ -68,12 +60,12 @@ html.night body {
     background-color: #f3f4f6;
 }
 
-html.night .theme-toggle {
+:global(html.night) .theme-toggle {
     background-color: var(--card-dark);
     color: #ffffff;
 }
 
-html.night .theme-toggle:hover {
+:global(html.night) .theme-toggle:hover {
     background-color: #374151;
 }
 
@@ -91,7 +83,7 @@ html.night .theme-toggle:hover {
     transition: background-color 0.3s;
 }
 
-html.night .main-card {
+:global(html.night) .main-card {
     background-color: var(--card-dark);
 }
 
@@ -122,7 +114,7 @@ html.night .main-card {
     color: #000000;
 }
 
-html.night .logo-icon {
+:global(html.night) .logo-icon {
     color: #ffffff;
 }
 
@@ -145,7 +137,7 @@ html.night .logo-icon {
     color: #9ca3af;
 }
 
-html.night .web-dec-top {
+:global(html.night) .web-dec-top {
     color: #4b5563;
 }
 
@@ -173,7 +165,7 @@ html.night .web-dec-top {
     color: #000000;
 }
 
-html.night .hero-title {
+:global(html.night) .hero-title {
     color: #ffffff;
 }
 
@@ -246,7 +238,7 @@ html.night .hero-title {
     transition: background-color 0.3s;
 }
 
-html.night .middle-section {
+:global(html.night) .middle-section {
     background-color: rgba(124, 45, 18, 0.4);
 }
 
@@ -263,7 +255,7 @@ html.night .middle-section {
     color: rgba(0, 0, 0, 0.8);
 }
 
-html.night .middle-floating-icons {
+:global(html.night) .middle-floating-icons {
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -305,7 +297,7 @@ html.night .middle-floating-icons {
     margin-bottom: 1.5rem;
 }
 
-html.night .date-badge {
+:global(html.night) .date-badge {
     background-color: rgba(255, 159, 104, 0.1);
 }
 
@@ -314,7 +306,7 @@ html.night .date-badge {
     color: #000000;
 }
 
-html.night .date-text {
+:global(html.night) .date-text {
     color: #ffffff;
 }
 
@@ -341,7 +333,7 @@ html.night .date-text {
     margin-bottom: 0.25rem;
 }
 
-html.night .middle-title {
+:global(html.night) .middle-title {
     color: #ffffff;
 }
 
@@ -351,7 +343,7 @@ html.night .middle-title {
     margin-bottom: 1.5rem;
 }
 
-html.night .middle-subtitle {
+:global(html.night) .middle-subtitle {
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -363,7 +355,7 @@ html.night .middle-subtitle {
     font-weight: 300;
 }
 
-html.night .middle-desc {
+:global(html.night) .middle-desc {
     color: #e5e7eb;
 }
 
@@ -375,7 +367,7 @@ html.night .middle-desc {
     transition: background-color 0.3s;
 }
 
-html.night .bottom-section {
+:global(html.night) .bottom-section {
     background-color: var(--card-dark);
 }
 
@@ -409,7 +401,7 @@ html.night .bottom-section {
     margin-bottom: 0.75rem;
 }
 
-html.night .bottom-title {
+:global(html.night) .bottom-title {
     color: #ffffff;
 }
 
@@ -420,7 +412,7 @@ html.night .bottom-title {
     margin-bottom: 1.5rem;
 }
 
-html.night .bottom-desc {
+:global(html.night) .bottom-desc {
     color: #d1d5db;
 }
 
@@ -441,7 +433,7 @@ html.night .bottom-desc {
     font-size: 1.125rem !important;
 }
 
-html.night .feature-icon {
+:global(html.night) .feature-icon {
     color: #ffffff;
 }
 
@@ -451,7 +443,7 @@ html.night .feature-icon {
     color: #1f2937;
 }
 
-html.night .feature-text {
+:global(html.night) .feature-text {
     color: #e5e7eb;
 }
 
@@ -476,7 +468,7 @@ html.night .feature-text {
     object-fit: contain;
 }
 
-html.night .skull-img {
+:global(html.night) .skull-img {
     filter: invert(1);
 }
 
@@ -492,7 +484,7 @@ html.night .skull-img {
     transform: rotate(180deg);
 }
 
-html.night .web-dec-bottom {
+:global(html.night) .web-dec-bottom {
     color: #4b5563;
 }
 

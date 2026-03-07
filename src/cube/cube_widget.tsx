@@ -42,6 +42,7 @@ export function CubeWidget(props: CubeWidgetProps) {
         context.configure({
             device,
             format: presentationFormat,
+            alphaMode: 'premultiplied',
         });
 
         // Create a vertex buffer from the cube data.
@@ -136,7 +137,7 @@ export function CubeWidget(props: CubeWidgetProps) {
                 {
                     view: undefined, // Assigned later
 
-                    clearValue: [0.5, 0.5, 0.5, 1.0],
+                    clearValue: [0, 0, 0, 0],
                     loadOp: 'clear',
                     storeOp: 'store',
                 },
@@ -214,7 +215,7 @@ export function CubeWidget(props: CubeWidgetProps) {
             ref={(el) => canvasRef = el}
             style={{
                 width: props.width ? `${props.width}px` : '100%',
-                height: props.height ? `${props.height}px` : '100%'
+                height: props.height ? `${props.height}px` : '100%',
             }}
         />
     );

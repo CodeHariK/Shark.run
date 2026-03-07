@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- Base & Desktop Container --- */
+.desktopContainer {
+    font-family: 'Spline Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* --- Shared Effects --- */
+.glassEffect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* --- Desktop Icons Area --- */
+.desktopIcons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: max-content;
+}
+
+.desktopIconBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    width: 6rem;
+    border-radius: 12px;
+    /* custom border radius from config */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.desktopIconBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.iconBox {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.desktopIconBtn:hover .iconBox {
+    transform: scale(1.1);
+}
+
+.iconBox svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.iconLabel {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+}
+
+/* Specific Desktop Icon Colors */
+.journalBox {
+    background-color: rgba(234, 62, 119, 0.2);
+    color: #ea3e77;
+}
+
+.libraryBox {
+    background-color: rgba(123, 98, 166, 0.2);
+    color: #7b62a6;
+}
+
+.studioBox {
+    background-color: rgba(140, 156, 100, 0.2);
+    color: #8c9c64;
+}
+
+/* --- Floating Taskbar --- */
+.taskbar {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.taskbarInner {
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.taskbarIconWrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.taskbarIconWrapper:hover {
+    transform: translateY(-5px);
+}
+
+.taskbarIcon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.taskbarIcon svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Specific Taskbar Icon Colors */
+.filesIcon {
+    background-color: rgba(249, 231, 159, 0.8);
+    color: #854d0e;
+}
+
+.webIcon {
+    background-color: rgba(219, 234, 254, 0.8);
+    color: #2563eb;
+}
+
+.audioIcon {
+    background-color: rgba(243, 232, 255, 0.8);
+    color: #9333ea;
+}
+
+.systemIcon {
+    background-color: rgba(243, 244, 246, 0.8);
+    color: #4b5563;
+}
+
+.taskbarSeparator {
+    height: 2rem;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.taskbarTooltip {
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.taskbarIconWrapper:hover .taskbarTooltip {
+    opacity: 1;
+}
+
+/* --- System Tray --- */
+.systemTray {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.weatherWidget {
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weatherWidget svg {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: #fde047;
+}
+
+.weatherTemp {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.clockContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timeText {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+    letter-spacing: -0.025em;
+}
+
+.dateText {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
