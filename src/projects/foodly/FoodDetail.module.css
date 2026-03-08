@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* --- Outer Wrapper --- */
+.wrapper {
+    --c-primary: var(--c-brand);
+    --c-brand-dark: var(--c-text-primary);
+    --c-brand-gray: var(--c-bg-tertiary);
+    --c-brand-secondary: var(--c-text-secondary);
+
+    --c-white: var(--c-bg-secondary);
+    --c-gray-100: var(--c-bg-primary);
+    --c-gray-200: var(--c-border);
+    --c-gray-400: var(--c-text-muted);
+    --c-gray-500: var(--c-text-secondary);
+
+    --radius-theme: var(--radius-md);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: var(--c-bg-primary); */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    padding: 2rem;
+
+
+    /* --- Mobile Device Container (iPhone 16: 393x852) --- */
+    .deviceContainer {
+        width: 393px;
+        height: 852px;
+        background-color: var(--c-white);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-radius: 40px;
+        border: 8px solid #000000;
+        box-sizing: border-box;
+    }
+
+    /* --- Status Bar --- */
+    .statusBar {
+        height: 44px;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background-color: var(--c-white);
+        z-index: 50;
+        box-sizing: border-box;
+    }
+
+    .timeText {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .statusIcons {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+
+    .iconSmall {
+        width: 1rem;
+        height: 1rem;
+        color: #000;
+    }
+
+    .batteryWrap {
+        width: 1.5rem;
+        height: 0.75rem;
+        border: 1px solid #000;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    .batteryLevel {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        left: 1px;
+        right: 5px;
+        background-color: #000;
+        border-radius: 1px;
+    }
+
+    /* --- Top Navigation --- */
+    .topNav {
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navTitle {
+        font-size: 1.125rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin: 0;
+        color: #000;
+    }
+
+    .navBtn {
+        padding: 0.5rem;
+        border-radius: 9999px;
+        background-color: var(--c-brand-gray);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .navBtnIcon {
+        height: 1.25rem;
+        width: 1.25rem;
+        color: var(--c-primary);
+    }
+
+    /* --- Category Tabs --- */
+    .categoryNav {
+        padding: 0 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .categoryNav::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .catBtnActive {
+        background-color: var(--c-brand-dark);
+        color: var(--c-white);
+        padding: 0.5rem 1.25rem;
+        border-radius: var(--radius-theme);
+        font-size: 0.875rem;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .catBtn {
+        background-color: var(--c-brand-gray);
+        color: var(--c-gray-500);
+        padding: 0.5rem 1.25rem;
+        border-radius: var(--radius-theme);
+        font-size: 0.875rem;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    /* --- Scrollable Content Area --- */
+    .scrollArea {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0 1.5rem 6rem;
+        /* Extra bottom padding for action bar */
+        scrollbar-width: none;
+    }
+
+    .scrollArea::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* --- Hero Image Section --- */
+    .heroSection {
+        position: relative;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .heroBtnLeft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.5rem;
+        border-radius: 9999px;
+        border: 1px solid var(--c-gray-100);
+        background-color: var(--c-white);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+    }
+
+    .heroBtnRight {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.5rem;
+        border-radius: 9999px;
+        border: 1px solid var(--c-gray-100);
+        background-color: var(--c-white);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        color: var(--c-primary);
+    }
+
+    .heroImgWrap {
+        width: 16rem;
+        height: 16rem;
+        border-radius: 9999px;
+        background-color: var(--c-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .heroImg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 9999px;
+    }
+
+    /* --- Product Details --- */
+    .detailsSection {
+        margin-bottom: 2rem;
+    }
+
+    .productTitle {
+        font-size: 1.875rem;
+        font-weight: 800;
+        margin: 0 0 0.5rem 0;
+        color: var(--c-brand-dark);
+    }
+
+    .productDesc {
+        color: var(--c-brand-secondary);
+        font-size: 0.875rem;
+        line-height: 1.625;
+        margin: 0;
+    }
+
+    /* --- Section Shared Typography --- */
+    .sectionLabel {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--c-gray-400);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0 0 0.75rem 0;
+    }
+
+    .buttonGroup {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    /* --- Size Selection --- */
+    .sizeSection {
+        margin-bottom: 2rem;
+    }
+
+    .sizeBtnActive {
+        padding: 0.5rem 1.25rem;
+        background-color: var(--c-brand-dark);
+        color: var(--c-white);
+        border-radius: var(--radius-theme);
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+    }
+
+    .sizeBtn {
+        padding: 0.5rem 1.25rem;
+        background-color: var(--c-brand-gray);
+        color: var(--c-gray-500);
+        border-radius: var(--radius-theme);
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid var(--c-gray-100);
+        cursor: pointer;
+    }
+
+    /* --- Build Your Meal --- */
+    .ingSection {
+        margin-bottom: 1rem;
+    }
+
+    .ingItem {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        background-color: var(--c-brand-gray);
+        border-radius: var(--radius-theme);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--c-gray-200);
+    }
+
+    .ingItemInactive {
+        opacity: 0.6;
+    }
+
+    .ingImg {
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: contain;
+    }
+
+    .ingImgInactive {
+        filter: grayscale(100%);
+    }
+
+    .ingCheck {
+        position: absolute;
+        bottom: -0.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--c-brand-dark);
+        color: var(--c-white);
+        padding: 0.125rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ingCheckSvg {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    /* --- Bottom Interaction Bar --- */
+    .actionBar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--c-white);
+        padding: 1rem 1.5rem 2rem;
+        border-top: 1px solid #f9fafb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 40;
+    }
+
+    .priceCol {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .priceText {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--c-brand-dark);
+        margin: 0;
+    }
+
+    .actionRight {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .qtyControl {
+        display: flex;
+        align-items: center;
+        background-color: var(--c-brand-gray);
+        border-radius: 9999px;
+        padding: 0.25rem;
+        border: 1px solid var(--c-gray-100);
+    }
+
+    .qtyBtn {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+    }
+
+    .qtyBtnMinus {
+        background-color: var(--c-brand-dark);
+        color: var(--c-white);
+    }
+
+    .qtyBtnPlus {
+        background-color: var(--c-white);
+        color: var(--c-brand-dark);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--c-gray-200);
+    }
+
+    .qtyVal {
+        padding: 0 1rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: var(--c-brand-dark);
+    }
+
+    .addToOrderBtn {
+        background-color: var(--c-primary);
+        color: var(--c-white);
+        padding: 0.875rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.875rem;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .addToOrderBtn:hover {
+        opacity: 0.9;
+    }
+
+    /* --- Home Indicator --- */
+    .homeIndicatorWrap {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8rem;
+        height: 0.25rem;
+        background-color: var(--c-gray-200);
+        border-radius: 9999px;
+        z-index: 50;
+    }
+}

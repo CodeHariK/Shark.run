@@ -1,0 +1,595 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+.appWrapper {
+    /* Mapped to Central Theme Variables */
+    --c-primary: var(--c-brand);
+    --c-primary-10: rgba(230, 30, 37, 0.1);
+    --c-primary-20: rgba(230, 30, 37, 0.2);
+
+    /* Theme Mappings */
+    --theme-bg-app: var(--c-bg-primary);
+    --theme-bg-surface: var(--c-bg-secondary);
+    --theme-bg-header: var(--c-bg-tertiary);
+    --theme-bg-footer: var(--c-bg-tertiary);
+
+    --theme-text-main: var(--c-text-primary);
+    --theme-text-muted: var(--c-text-secondary);
+
+    --theme-border: var(--c-border);
+    --theme-border-dashed: var(--c-border);
+
+    --btn-bg: var(--c-bg-tertiary);
+    --btn-text: var(--c-text-primary);
+    --btn-hover: var(--c-border);
+
+    --barcode-bg: var(--c-white);
+    --barcode-bar: var(--c-black);
+}
+
+/* Dark mode overrides for barcode if needed */
+:global(.dark) .appWrapper,
+:global(html.night) .appWrapper {
+    --barcode-bg: var(--c-gray-700);
+    --barcode-bar: var(--c-gray-200);
+}
+
+
+.materialIcon {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Base Layout */
+.appWrapper {
+    font-family: 'Public Sans', sans-serif;
+    background-color: var(--theme-bg-app);
+    color: var(--theme-text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--theme-border);
+    padding: 1rem 1.5rem;
+    flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+    .header {
+        padding: 1rem 10rem;
+    }
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logoBox {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--c-primary);
+    color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+.headerRight {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btnSecondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btnSecondary:hover {
+    background-color: var(--btn-hover);
+}
+
+.btnPrimary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: var(--c-primary);
+    color: white;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btnPrimary:hover {
+    opacity: 0.9;
+}
+
+.btnIcon {
+    font-size: 1.25rem !important;
+}
+
+.btnText {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .btnText {
+        display: inline;
+    }
+}
+
+/* --- Main Content --- */
+.mainContent {
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 1024px) {
+    .mainContent {
+        padding: 2rem 10rem;
+    }
+}
+
+.receiptCard {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--theme-bg-surface);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+/* --- Banner --- */
+.banner {
+    background-color: var(--c-primary-10);
+    border-bottom: 1px solid var(--c-primary-20);
+    padding: 1.5rem;
+}
+
+.bannerLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.bannerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.statusLabel {
+    color: var(--c-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.orderId {
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--theme-text-main);
+}
+
+.orderDate {
+    font-size: 0.875rem;
+    color: var(--theme-text-muted);
+    margin: 0;
+}
+
+.bannerRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media (max-width: 640px) {
+    .bannerRight {
+        align-items: flex-start;
+    }
+}
+
+.paymentLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--theme-text-muted);
+}
+
+.paymentMethod {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: var(--theme-text-main);
+}
+
+/* --- Receipt Details --- */
+.receiptBody {
+    padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .receiptBody {
+        padding: 2.5rem;
+    }
+}
+
+/* Address Info */
+.infoRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--theme-border-dashed);
+}
+
+@media (min-width: 768px) {
+    .infoRow {
+        flex-direction: row;
+    }
+}
+
+.infoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .infoBlockRight {
+        text-align: right;
+    }
+}
+
+.infoTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    margin: 0;
+}
+
+.infoTitleDark {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--theme-text-main);
+    margin: 0;
+}
+
+.infoText {
+    font-size: 0.875rem;
+    color: var(--theme-text-muted);
+    line-height: 1.625;
+    margin: 0;
+}
+
+/* Items Table */
+.tableHeader {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-bg-header);
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--theme-text-muted);
+}
+
+.colItems {
+    grid-column: span 7 / span 7;
+}
+
+.colQty {
+    grid-column: span 2 / span 2;
+    text-align: center;
+}
+
+.colPrice {
+    grid-column: span 3 / span 3;
+    text-align: right;
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.itemRow {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.itemDesc {
+    grid-column: span 7 / span 7;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.itemImg {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--theme-border);
+}
+
+.itemName {
+    font-weight: 700;
+    color: var(--theme-text-main);
+    margin: 0;
+}
+
+.itemMods {
+    font-size: 0.75rem;
+    color: var(--theme-text-muted);
+    margin: 0;
+}
+
+.itemQty {
+    grid-column: span 2 / span 2;
+    text-align: center;
+    font-weight: 500;
+    color: var(--theme-text-main);
+}
+
+.itemPriceText {
+    grid-column: span 3 / span 3;
+    text-align: right;
+    font-weight: 700;
+    color: var(--theme-text-main);
+}
+
+/* Totals */
+.totalsRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--theme-border);
+}
+
+@media (min-width: 768px) {
+    .totalsRow {
+        flex-direction: row;
+    }
+}
+
+.noteBox {
+    width: 100%;
+    background-color: var(--c-primary-10);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--c-primary-10);
+}
+
+@media (min-width: 768px) {
+    .noteBoxWrap {
+        width: 50%;
+    }
+}
+
+.noteTitle {
+    color: var(--c-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.noteText {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--theme-text-muted);
+    margin: 0;
+}
+
+.calcBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .calcBox {
+        width: 33.333%;
+    }
+}
+
+.calcRow {
+    display: flex;
+    justify-content: space-between;
+    color: var(--theme-text-muted);
+    font-size: 1rem;
+}
+
+.calcVal {
+    font-weight: 500;
+}
+
+.grandTotalRow {
+    display: flex;
+    justify-content: space-between;
+    color: var(--theme-text-main);
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--theme-border);
+}
+
+.grandTotalVal {
+    color: var(--c-primary);
+}
+
+/* Footer */
+.receiptFooter {
+    margin-top: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cardLogos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.cardLogo {
+    width: 8rem;
+    height: 2.5rem;
+    background-color: var(--theme-border);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--theme-text-muted);
+    font-style: italic;
+}
+
+.thankYouText {
+    color: var(--theme-text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.footerLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    text-transform: uppercase;
+}
+
+.footerLinks a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footerLinks a:hover {
+    text-decoration: underline;
+}
+
+/* Barcode */
+.barcodeSection {
+    background-color: var(--theme-bg-footer);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.barcodeWrap {
+    width: 100%;
+    max-width: 400px;
+    height: 4rem;
+    background-color: var(--barcode-bg);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.barcodeBars {
+    display: flex;
+    gap: 2px;
+    align-items: stretch;
+    height: 2.5rem;
+    width: 90%;
+    opacity: 0.8;
+}
+
+.bar {
+    background-color: var(--barcode-bar);
+}
+
+.barcodeNum {
+    font-size: 0.625rem;
+    color: var(--theme-text-muted);
+    font-family: monospace;
+    letter-spacing: 0.5em;
+    margin: 0;
+}

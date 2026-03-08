@@ -83,7 +83,7 @@ const FoodlyOrders: Component<{ id?: string }> = (props) => {
     ];
 
     return (
-        <section id={props.id} class={styles.contentArea} style={{ "border-top": "1px solid var(--gray-100)", "margin-top": "4rem", "padding-top": "2rem" }}>
+        <section id={props.id} class={styles.contentArea} style={{ "border-top": "1px solid var(--gray-100)", }}>
 
             <div style={{ padding: '0 2.5rem' }}>
                 <h1 class={styles.pageTitle}>Orders History</h1>

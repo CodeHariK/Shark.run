@@ -144,7 +144,7 @@ const Kawaii: Component = () => {
         {
             title: 'Foodly Platform',
             description: 'A premium food delivery portfolio showcase with menu management and order tracking.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCGELU2Z1R0lC3ygwCMX1q_GtXGga6t_OgE5axYQJgGbxgNs-LawSqONbdogX6l7rJcEgIwX44xF5AdNjSIICGfaf7KEtu0w-m3RRCaJS0aycgke1rZNTSg01V5Jfyvm4Nd2kp-bYNPaCNmOl_9LtY-NTKiAbrCU5c9PM4oB1PPmIamCqY2CKBQBmnK-l8z-haCJraemG2UgY4sUsyAYTSg74J14fCujIJluRrv-vH5tvhrW6ct9fJ6rU3icIYiN5Qc_mCjqsqZTCGi',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWL0YM0AUpQ7SxDv7LnR2auQ01E9moXGjECw&s',
             tag: 'Web App',
             tagClass: 'web-app',
             tagIcon: 'restaurant',

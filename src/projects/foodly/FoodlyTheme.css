@@ -1,0 +1,108 @@
+/* FoodlyTheme.css - Central Theme Variables */
+
+:root {
+    /* Brand Colors */
+    --c-brand: #e61e25;
+    --c-brand-hover: #d11921;
+    --c-brand-light: #fff1f2;
+
+    /* Functional Colors - Light Mode (Default) */
+    --c-bg-primary: #f8fafc;
+    --c-bg-secondary: #ffffff;
+    --c-bg-tertiary: #f1f5f9;
+
+    --c-text-primary: #0f172a;
+    --c-text-secondary: #64728b;
+    --c-text-muted: #94a3b8;
+    --c-text-on-brand: #ffffff;
+
+    --c-border: #e2e8f0;
+    --c-border-light: #f1f5f9;
+
+    /* Common Palette */
+    --c-white: #ffffff;
+    --c-black: #000000;
+
+    --c-gray-50: #f9fafb;
+    --c-gray-100: #f3f4f6;
+    --c-gray-200: #e5e7eb;
+    --c-gray-300: #d1d5db;
+    --c-gray-400: #9ca3af;
+    --c-gray-500: #6b7280;
+    --c-gray-600: #4b5563;
+    --c-gray-700: #374151;
+    --c-gray-800: #1f2937;
+    --c-gray-900: #111827;
+
+    /* Semantic Colors */
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-error: #ef4444;
+    --c-info: #3b82f6;
+
+    /* Shadows & Radii */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --tr-fast: 150ms ease-in-out;
+    --tr-normal: 250ms ease-in-out;
+}
+
+/* Dark Mode Overrides - Supported via System Preference OR Manual Toggle (.night or .dark) */
+:root.night,
+:root.dark {
+    --c-bg-primary: #0f172a;
+    --c-bg-secondary: #1e293b;
+    --c-bg-tertiary: #334155;
+
+    --c-text-primary: #f8fafc;
+    --c-text-secondary: #94a3b8;
+    --c-text-muted: #64728b;
+
+    --c-border: #334155;
+    --c-border-light: #1e293b;
+
+    --c-gray-50: #111827;
+    --c-gray-100: #1f2937;
+    --c-gray-200: #374151;
+    --c-gray-300: #4b5563;
+    --c-gray-400: #6b7280;
+    --c-gray-500: #9ca3af;
+    --c-gray-600: #d1d5db;
+    --c-gray-700: #e5e7eb;
+    --c-gray-800: #f3f4f6;
+    --c-gray-900: #f9fafb;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+        --c-bg-primary: #0f172a;
+        --c-bg-secondary: #1e293b;
+        --c-bg-tertiary: #334155;
+
+        --c-text-primary: #f8fafc;
+        --c-text-secondary: #94a3b8;
+        --c-text-muted: #64728b;
+
+        --c-border: #334155;
+        --c-border-light: #1e293b;
+
+        --c-gray-50: #111827;
+        --c-gray-100: #1f2937;
+        --c-gray-200: #374151;
+        --c-gray-300: #4b5563;
+        --c-gray-400: #6b7280;
+        --c-gray-500: #9ca3af;
+        --c-gray-600: #d1d5db;
+        --c-gray-700: #e5e7eb;
+        --c-gray-800: #f3f4f6;
+        --c-gray-900: #f9fafb;
+    }
+}

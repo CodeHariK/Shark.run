@@ -1,0 +1,227 @@
+.sidebar {
+    width: 16.25rem;
+    border-right: 1px solid var(--c-border);
+    background-color: var(--c-bg-secondary);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+}
+
+.brandArea {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brandIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--c-brand);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.brandIcon span {
+    font-family: 'Material Symbols Outlined';
+    font-size: 1.5rem;
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+}
+
+.brandTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.025em;
+    color: var(--c-text-primary);
+}
+
+.brandSubtitle {
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+    margin: 0;
+}
+
+.navMenu {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    color: var(--c-text-secondary);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+    background-color: var(--c-bg-tertiary);
+    color: var(--c-text-primary);
+}
+
+.navLinkActive {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: var(--c-brand);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(230, 30, 37, 0.2);
+}
+
+.materialIcon {
+    font-family: 'Material Symbols Outlined';
+    font-size: 24px;
+}
+
+.navText {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.navDivider {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--c-border);
+}
+
+/* User Profile Section */
+.userProfile {
+    padding: 1rem;
+    border-top: 1px solid var(--c-border);
+}
+
+.userCard {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    background-color: var(--c-bg-tertiary);
+    border-radius: 0.75rem;
+}
+
+.userAvatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    object-fit: cover;
+}
+
+.userInfo {
+    flex: 1;
+    overflow: hidden;
+}
+
+.userName {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--c-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.userRole {
+    font-size: 0.6875rem;
+    color: var(--c-text-secondary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Help Center Section */
+.helpCenter {
+    padding: 1rem;
+    margin-top: auto;
+}
+
+.helpCard {
+    background-color: rgba(230, 30, 37, 0.05);
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(230, 30, 37, 0.1);
+}
+
+.helpTitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--c-brand);
+    text-transform: uppercase;
+    margin: 0 0 0.25rem 0;
+}
+
+.helpText {
+    font-size: 0.75rem;
+    color: var(--c-text-secondary);
+    margin: 0 0 0.75rem 0;
+}
+
+.helpBtn {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: white;
+    color: var(--c-brand);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(230, 30, 37, 0.2);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+:global(.dark) .helpBtn {
+    background-color: var(--c-bg-primary);
+}
+
+.helpBtn:hover {
+    background-color: rgba(230, 30, 37, 0.05);
+}
+
+@media (max-width: 1023px) {
+    .sidebar {
+        width: 5rem;
+    }
+
+    .brandText,
+    .navText,
+    .userInfo,
+    .helpCenter {
+        display: none;
+    }
+
+    .navMenu {
+        align-items: center;
+    }
+
+    .navLink,
+    .navLinkActive {
+        padding: 0.75rem;
+        justify-content: center;
+    }
+
+    .userCard {
+        padding: 0.5rem;
+        justify-content: center;
+    }
+}

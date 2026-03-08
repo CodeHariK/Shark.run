@@ -24,6 +24,48 @@
     --drop-shadow-2xl: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
 }
 
+.stackedSection {
+    width: auto;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    border: 2px dashed var(--gray-200);
+    gap: 2rem;
+    box-sizing: border-box;
+}
+
+.sectionAboutHeader {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.sectionAboutTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--brand-red), #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+    padding-bottom: 0.1em;
+    display: block;
+}
+
+.sectionAboutDesc {
+    font-size: 1.125rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin: 0;
+}
+
 :global(html.night) .foodlyWrapper {
     --bg-app: #020617;
     --bg-main: #0f172a;
@@ -87,8 +129,6 @@
 @media (min-width: 1024px) {
     .mainContent {
         padding: 2.5rem;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
     }
 }
 
@@ -1097,6 +1137,7 @@
 .actionButtons {
     display: flex;
     gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .btnDetails {
