@@ -19,6 +19,7 @@ import CozyFeed from "./projects/os/CozyFeed";
 import BadgeHunt from "./pages/BadgeHunt";
 import Foodly from "./projects/foodly/Foodly";
 import WonderKids from "./projects/wonderkids/WonderKids";
+import TravelLanding from "./pages/TravelLanding";
 
 render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
     <Router base="/">
@@ -35,6 +36,7 @@ render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
         <Route path={"/badgehunt"} component={BadgeHunt} />
         <Route path={"/foodly"} component={Foodly} />
         <Route path={"/wonderkids"} component={WonderKids} />
+        <Route path={"/travellanding"} component={TravelLanding} />
     </Router>
 </SOL.SolProvider>,
     document.body!)

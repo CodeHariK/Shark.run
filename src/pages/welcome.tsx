@@ -17,17 +17,15 @@ interface Skill {
 
 export function DeveloperProfile() {
     const skills: Skill[] = [
+        { name: 'Flutter', icon: '📱', category: 'mobile' },
         { name: 'React Native', icon: '⚛️', category: 'mobile' },
-        { name: 'Kotlin Compose', icon: '🚀', category: 'mobile' },
-        { name: 'SwiftUI', icon: '🎨', category: 'mobile' },
+        { name: 'Kotlin Compose Android', icon: '🚀', category: 'mobile' },
+        { name: 'SwiftUI iOS', icon: '🎨', category: 'mobile' },
         { name: 'Firebase', icon: '🔥', category: 'platform' },
         { name: 'Supabase', icon: '⚡', category: 'platform' },
         { name: 'Go', icon: '🔹', category: 'cloud' },
         { name: 'Godot', icon: '🎮', category: 'game' },
-        { name: 'Flutter', icon: '📱', category: 'mobile' },
         { name: 'GCP', icon: '☁️', category: 'platform' },
-        { name: 'iOS', icon: '🍎', category: 'mobile' },
-        { name: 'Android', icon: '🤖', category: 'mobile' },
     ];
 
     const categoryIcons = {
@@ -223,7 +221,7 @@ const Kawaii: Component = () => {
                                 <span class={styles["bounce"]}>✨</span>
                             </div>
                             <div class={styles["kawaii-hero"]}>
-                                <h1>Kawaii <span>Projects</span></h1>
+                                <h1>Hello my name is <span>Shark.cat</span></h1>
                             </div>
                             <p class={styles["kawaii-hero-description"]}>
                                 Welcome to my cozy corner of the internet! Here are the cute apps, playful games, and web experiments I've created with love. 🌸
@@ -323,7 +321,7 @@ const Kawaii: Component = () => {
                         <div class={styles["footer-info"]}>
                             <div class={styles["footer-brand"]}>
                                 <span class="material-symbols-outlined">favorite</span>
-                                <span>KawaiiPortfolio</span>
+                                <span>Shark.run</span>
                             </div>
                             <p class={styles["footer-copy"]}>© 2024 Made with <span>♥</span> & marshmallows.</p>
                         </div>
