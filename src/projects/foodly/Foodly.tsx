@@ -11,7 +11,7 @@ import OrderReceipt from './OrderReceipt';
 import FoodlyDashboard from './FoodlyDashboard';
 
 import styles from './Foodly.module.css';
-import './FoodlyTheme.css'; // Global Theme Variables
+import themeStyles from './FoodlyTheme.module.css';
 import { ThemeToggle } from 'solgaleo';
 import { FoodlyMenuSection } from './FoodMenuSection';
 
@@ -23,7 +23,7 @@ const Foodly: Component = () => {
     };
 
     return (
-        <div class={styles.foodlyWrapper} style={{ "overflow-y": "auto", height: "100vh" }}>
+        <div class={`${styles.foodlyWrapper} ${themeStyles.foodlyTheme}`} style={{ "overflow-y": "auto", height: "100vh" }}>
             <div class={styles.appContainer} style={{ "flex-direction": "column", "gap": "4rem", "padding": "2rem" }}>
 
                 {/* Global Unified Header */}

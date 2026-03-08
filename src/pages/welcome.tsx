@@ -43,7 +43,7 @@ export function DeveloperProfile() {
                 <div class={styles["profile-header"]}>
                     <div class={styles["profile-avatar-wrapper"]}>
                         <img
-                            src="https://api.dicebear.com/7.x/adventurer/svg?seed=Felix&backgroundColor=ffd1dc"
+                            src="https://avatars.githubusercontent.com/u/144345505?v=4"
                             alt="Avatar"
                             class={styles["profile-avatar"]}
                         />
@@ -102,12 +102,13 @@ const Kawaii: Component = () => {
 
     const projects = [
         {
-            title: 'TaskFlow App',
-            description: 'A super cute productivity tool designed for remote teams to manage workflows efficiently.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCO8KlEXxAYarYwP9xJGAudrqOkxydMtZx0rCHTu69PZbB30bSSwxjkIfW8aL6kAij9FmwJlFYN-5_iyw5o04nA49lZlFBv9MC-VEOW_NSkdUcZc9LSbCgpInRWZVpfWybii2GcH0gyPd96jzJBX9xAMxeraH_gtg82oiPCbkQW0fc6uH0S-pyDNnGvWAbiIRJkYgaXipWYSKKu568iKvjyO5HmaTVeHw1l9kX8MF-YjxEqDjWB0hkY_2rylkTIqOLstz8iCjvfHZQh',
+            title: 'Wonder kids',
+            description: 'The best place to learn and play for kids',
+            image: 'https://m.media-amazon.com/images/S/abs-image-upload-na/f/AmazonStores/ATVPDKIKX0DER/498caa3a588d23f54b7cd9d613d4324c.w680.h675.png',
             tag: 'Web App',
             tagClass: 'web-app',
             tagIcon: 'cloud',
+            link: '/wonderkids',
             overlayClass: 'kawaii-purple',
             stack: [
                 { name: 'React', class: 'tech-react' },

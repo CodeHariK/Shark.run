@@ -1,6 +1,6 @@
-/* FoodlyTheme.css - Central Theme Variables */
+/* FoodlyTheme.module.css - Scoped Theme Variables */
 
-:root {
+.foodlyTheme {
     /* Brand Colors */
     --c-brand: #e61e25;
     --c-brand-hover: #d11921;
@@ -55,9 +55,9 @@
     --tr-normal: 250ms ease-in-out;
 }
 
-/* Dark Mode Overrides - Supported via System Preference OR Manual Toggle (.night or .dark) */
-:root.night,
-:root.dark {
+/* Dark Mode Overrides - Using :global to target app-level night/dark classes */
+:global(.night) .foodlyTheme,
+:global(.dark) .foodlyTheme {
     --c-bg-primary: #0f172a;
     --c-bg-secondary: #1e293b;
     --c-bg-tertiary: #334155;
@@ -82,7 +82,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    :root:not(.light) {
+
+    /* Apply dark variables if user prefers dark mode and doesn't have an explicit light override */
+    :global(:root:not(.light)) .foodlyTheme {
         --c-bg-primary: #0f172a;
         --c-bg-secondary: #1e293b;
         --c-bg-tertiary: #334155;

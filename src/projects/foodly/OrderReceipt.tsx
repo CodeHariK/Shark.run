@@ -91,7 +91,7 @@ const OrderReceipt: Component = () => {
                                 <div class={`${styles.infoBlock} ${styles.infoBlockRight}`}>
                                     <h4 class={styles.infoTitleDark}>Deliver To</h4>
                                     <p class={styles.infoText}>
-                                        Alex Johnson<br />
+                                        Water Will<br />
                                         789 Urban Loft St, Apt 4B<br />
                                         San Francisco, CA 94107
                                     </p>

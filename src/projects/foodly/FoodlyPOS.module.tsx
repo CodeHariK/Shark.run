@@ -17,7 +17,7 @@ const FoodlyPOS: Component = () => {
         {
             id: '#ORD-9921',
             time: '10:30 AM • Dine-in',
-            customerName: 'John Doe',
+            customerName: 'Fire Will',
             customerImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDRBnVrqY8xO6J2M1tHj0r8fbmKhtRUhfmY2p9wlMoa3H3YaQocW76y44xHLET_YZmjBzEYbNdmk6-W_UWkgPsj7Ce-fH9mhmx4nwPoxPlgBmTWQLZuAvppf_fSuCcWD8A7EwaDUXCyNAU4nb9De__SaplSZlgAXIWSxIQNcW2kXWzr9aMytvAmY_N9DzLJ42EXZ2Xzgdt-tDQx8w_-quZOzresKSqOXpqt-sc_73JQuuA4d9fLTkAnThYwEIkdAZlj7iU7wzX7A8Tp',
             itemsStr: '2x Spicy Burger, 1x Large Fries, 1x Coke',
             status: 'Preparing',
@@ -28,7 +28,7 @@ const FoodlyPOS: Component = () => {
         {
             id: '#ORD-9920',
             time: '10:25 AM • Delivery',
-            customerName: 'Jane Smith',
+            customerName: 'Neo Smith',
             customerImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVDdz8yjtOupWL96O0_8fpV6AKK7DOzfUQxvYxJ6G3Tky6H0wG5_Egqukl97ubSM7ns9jvFlcJE_Ww7n5TQhSG5Wy9arJ16wIHJvkfdGCLdyWZimPUy1ZaevbVxsAc0MhAo1zUzYo15opaS-j-aLt6DFNm9lya5yhE3l6B4m-4MOaMu6WL0Wt6KImTycLf3gnRrChXvatt30Hpn19S3sRJOS306e0yhPHUSOuDoLFxx81MkouH3wPOgcXBfEpDN8NQiL1hhxGICBG',
             itemsStr: '1x Pepperoni Pizza, 2x Soda',
             status: 'Pending',
@@ -196,7 +196,7 @@ const FoodlyPOS: Component = () => {
                                     style={{ "background-image": "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUql7sPDD0smwriU36PsL1YJriuelXbR0R_eWzfdF4sSSKQBuo3jZ5n8WWqkVDD71Gwo5ljcpQm3LNkUwARE1IGQ-pvHT4wqJd--yy8lr9qv8Nd4IySyuIreOgJMhdAYBUqpk3LPBI8Y_rZcHpRn9em0HjZyfxyV1I5ZGKMbym1x3q6Yf_Vm9iOLHLoon_h8SY7dTjpxyDSNQqRXEutSHOjKDolS--T5fmn8LRFFfeFimrp0TpHeCrXrVhvAVf7CbjqynAJCBtzyCn')" }}
                                 ></div>
                                 <div>
-                                    <p class={styles.custDetailName}>John Doe</p>
+                                    <p class={styles.custDetailName}>Fire will</p>
                                     <p class={styles.custDetailPhone}>+1 (555) 012-3456</p>
                                 </div>
                                 <button class={styles.callBtn}>

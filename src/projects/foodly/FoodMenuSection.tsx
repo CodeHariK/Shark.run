@@ -32,7 +32,7 @@ export const FoodlyMenuSection: Component = () => {
     ];
 
     return (
-        <div style={{ "display": "flex", "width": "100%", "gap": "2rem" }}>
+        <div class={styles.menuSectionLayout}>
             {/* Left & Center Content Section */}
             <main class={styles.mainContent}>
 

@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 .kawaii-page {
-    --kawaii-pink: #FFD1DC;
-    --kawaii-pink-dark: #FFA6C1;
-    --kawaii-bg: #FFF0F5;
+    --kawaii-pink: #c7a6ff;
+    --kawaii-pink-dark: #c7a6ff;
+    --kawaii-bg: #FFFFFF;
     --kawaii-text: #5D4E60;
     --kawaii-card: #FFFFFF;
     --kawaii-accent: #BDE0FE;
@@ -20,11 +20,11 @@
     --radius-2xl: 2rem;
     --radius-3xl: 2.5rem;
 
-    --shadow-soft: 0 8px 24px -6px rgba(255, 166, 193, 0.4);
+    --shadow-soft: 0 8px 24px -6px rgba(213, 166, 255, 0.4);
     --shadow-inner-soft: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 
     --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 166, 193, 0.2);
+    --glass-border: rgba(255, 166, 193, 0);
     --pattern-opacity: 1;
 
     --kawaii-text-muted: rgba(93, 78, 96, 0.7);
@@ -40,8 +40,8 @@
 }
 
 :global(html.night) .kawaii-page {
-    --kawaii-pink: #FF8BA0;
-    --kawaii-pink-dark: #FF6B81;
+    --kawaii-pink: #c7a6ff;
+    --kawaii-pink-dark: #c7a6ff;
     --kawaii-bg: #1A121F;
     --kawaii-text: #E5D9E6;
     --kawaii-card: #251B2E;
@@ -53,7 +53,7 @@
     --shadow-inner-soft: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
     --glass-bg: rgba(37, 27, 46, 0.85);
-    --glass-border: rgba(255, 107, 129, 0.3);
+    --glass-border: rgb(219 107 255 / 30%);
     --pattern-opacity: 0.15;
 
     --kawaii-text-muted: rgba(229, 217, 230, 0.7);
@@ -346,8 +346,8 @@
 
 .kawaii-badge {
     padding: 0.25rem 0.75rem;
-    background-color: color-mix(in srgb, var(--kawaii-accent) 30%, transparent);
-    color: var(--kawaii-accent);
+    background-color: color-mix(in srgb, var(--kawaii-pink) 30%, transparent);
+    color: var(--kawaii-pink);
     filter: brightness(0.8);
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -527,7 +527,6 @@
     pointer-events: none;
     z-index: 10;
     opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%23FFA6C1FF' stroke-width='3' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
 }
 
 .card-image-wrapper {
@@ -555,7 +554,7 @@
 .card-overlay {
     position: absolute;
     inset: 0;
-    background-color: color-mix(in srgb, var(--kawaii-purple) 20%, transparent);
+    /* background-color: color-mix(in srgb, var(--kawaii-purple) 20%, transparent); */
     transition: background-color 0.5s;
 }
 
@@ -877,7 +876,6 @@
     bottom: -5px;
     right: -5px;
     font-size: 1.5rem;
-    background: white;
     border-radius: 50%;
     padding: 2px;
 }
