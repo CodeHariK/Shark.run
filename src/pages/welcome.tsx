@@ -1,9 +1,7 @@
 import { CubeWidget } from "../cube/cube_widget"
 import { Component, For } from 'solid-js';
-import { Grid } from "../../../solgaleo/src/ui/grid";
-import { ThemeToggle } from "solgaleo";
+import { Grid, ThemeToggle } from "solgaleo";
 import styles from './kawaii.module.css';
-
 
 export function Welcome() {
     return <Kawaii />
@@ -131,7 +129,7 @@ const Kawaii: Component = () => {
         {
             title: 'Spacemoon',
             description: 'Connecting Universes. A Flutter Firebase social networking application.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            image: 'https://img.freepik.com/free-vector/cute-astronaut-floating-planet-space-cartoon-vector-icon-illustration-science-technology-flat_138676-7089.jpg?semt=ais_hybrid&w=740&q=80',
             link: 'https://github.com/codeharik/spacemoon',
             tag: 'Mobile App',
             tagClass: 'design',
@@ -145,31 +143,54 @@ const Kawaii: Component = () => {
                 { name: 'UI/UX', class: 'tech-uiux' },
             ]
         },
+
+
+
         {
-            title: 'Pixel Adventure',
-            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
-            tag: 'Game',
-            tagClass: 'game',
-            tagIcon: 'sports_esports',
-            overlayClass: 'kawaii-pink',
+            title: 'Apple Container GUI',
+            description: 'A complete UX case study and UI redesign for a major fashion e-commerce platform.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/codeharik/applecontainergui',
+            tag: 'Design',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
             stack: [
-                { name: 'Unity', class: 'tech-unity' },
-                { name: 'C#', class: 'tech-csharp' },
+                { name: 'Golang', class: 'tech-figma' },
+                { name: 'Typescript', class: 'tech-figma' },
+                { name: 'Reactjs', class: 'tech-figma' },
+                { name: 'Figma', class: 'tech-figma' },
+                { name: 'UI/UX', class: 'tech-uiux' },
             ]
         },
         {
-            title: 'Cozy OS',
-            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
-            link: 'cozyos',
-            tag: 'Game',
-            tagClass: 'game',
-            tagIcon: 'sports_esports',
-            overlayClass: 'kawaii-pink',
+            title: 'Secretary',
+            description: 'Bplustree database and datastructures',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/CodeHariK/Database',
+            tag: 'Design',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
             stack: [
-                { name: 'Unity', class: 'tech-unity' },
-                { name: 'C#', class: 'tech-csharp' },
+                { name: 'Golang', class: 'tech-figma' },
+                { name: 'Typescript', class: 'tech-figma' },
+            ]
+        },
+        {
+            title: 'AuthManager',
+            description: 'A complete UX case study and UI redesign for a major fashion e-commerce platform.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/codeharik/authmanager',
+            tag: 'Design',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
+            stack: [
+                { name: 'Typescript', class: 'tech-figma' },
+                { name: 'Reactjs', class: 'tech-figma' },
+                { name: 'Figma', class: 'tech-figma' },
+                { name: 'UI/UX', class: 'tech-uiux' },
             ]
         },
 
@@ -206,6 +227,35 @@ const Kawaii: Component = () => {
                 { name: 'Reactjs', class: 'tech-figma' },
                 { name: 'Figma', class: 'tech-figma' },
                 { name: 'UI/UX', class: 'tech-uiux' },
+            ]
+        },
+
+        {
+            title: 'Cozy OS',
+            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
+            link: 'cozyos',
+            tag: 'Game',
+            tagClass: 'game',
+            tagIcon: 'sports_esports',
+            overlayClass: 'kawaii-pink',
+            stack: [
+                { name: 'Unity', class: 'tech-unity' },
+                { name: 'C#', class: 'tech-csharp' },
+            ]
+        },
+
+        {
+            title: 'Pixel Adventure',
+            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
+            tag: 'Game',
+            tagClass: 'game',
+            tagIcon: 'sports_esports',
+            overlayClass: 'kawaii-pink',
+            stack: [
+                { name: 'Unity', class: 'tech-unity' },
+                { name: 'C#', class: 'tech-csharp' },
             ]
         },
 
@@ -281,7 +331,7 @@ const Kawaii: Component = () => {
                                 <h1>Hello my name is <span>Shark.cat</span></h1>
                             </div>
                             <p class={styles["kawaii-hero-description"]}>
-                                I am Developer
+                                I am Web and Mobile app Developer
                             </p>
                             <p class={styles["kawaii-hero-description"]}>
                                 Welcome to my cozy corner of the internet! Here are the cute apps, playful games, and web experiments I've created. 🌸

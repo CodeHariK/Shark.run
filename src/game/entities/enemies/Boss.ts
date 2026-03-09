@@ -1,6 +1,6 @@
 import { Bodies, World, Body } from "matter-js";
 import { Entity } from "../../core/types";
-import { BTNode, NodeStatus, Blackboard, Sequence, Selector, ActionNode, ConditionNode } from "../../ai/BehaviorTree";
+import { NodeStatus, Blackboard, Sequence, Selector, ActionNode, ConditionNode } from "../../ai/BehaviorTree";
 import { createGoomba } from "./Goomba";
 import { createFlyingEye } from "./FlyingEye";
 
@@ -240,15 +240,15 @@ const bossBT = new Sequence([
                 // Ready for a new cooldown move
                 new Selector([
                     new Sequence([
-                        new ConditionNode(bb => Math.random() < 0.3),
+                        new ConditionNode(_ => Math.random() < 0.3),
                         new ActionNode(bb => { bb.ent.category = "BOULDER"; return boulderCrushAction.tick(bb); })
                     ]),
                     new Sequence([
-                        new ConditionNode(bb => Math.random() < 0.4),
+                        new ConditionNode(_ => Math.random() < 0.4),
                         new ActionNode(bb => { bb.ent.category = "SPAWN"; return spawnMinionsAction.tick(bb); })
                     ]),
                     new Sequence([
-                        new ConditionNode(bb => Math.random() < 0.5),
+                        new ConditionNode(_ => Math.random() < 0.5),
                         new ActionNode(bb => { bb.ent.category = "GRENADE"; return grenadeTossAction.tick(bb); })
                     ]),
                     // Fallback to charge if nothing else picked

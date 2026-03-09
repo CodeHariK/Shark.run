@@ -10,4 +10,9 @@ export default defineConfig({
   build: {
     outDir: "./dist",
   },
+  resolve: {
+    alias: {
+      'solid-js': '/Users/Shared/Code/Shark.run/node_modules/solid-js',
+    },
+  },
 })

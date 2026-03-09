@@ -3,9 +3,9 @@
 
 .appWrapper {
     /* Brand Colors */
-    --c-primary: #ec5b13;
-    --c-primary-10: rgba(236, 91, 19, 0.1);
-    --c-primary-20: rgba(236, 91, 19, 0.2);
+    --c-primary: #8e129f;
+    --c-primary-10: rgba(49, 0, 55, 0.1);
+    --c-primary-20: rgba(49, 0, 55, 0.2);
     --c-cozy-accent: #f3e5db;
     --c-cozy-soft: #ce8db1;
 
