@@ -1,0 +1,453 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 20px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.phoneWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.screenTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.iphone16 {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: #000;
+    border-radius: 56px;
+    padding: 12px;
+    box-shadow:
+        0 0 0 4px #2b2b2b,
+        0 0 0 7px #1c1c1c,
+        0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.iphone16::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 35px;
+    background: #000;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 10;
+}
+
+.innerScreen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 44px;
+    overflow: hidden;
+    position: relative;
+}
+
+.screenImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.homescreen {
+    width: 100%;
+    max-width: 375px;
+    min-height: 812px;
+    background-color: var(--starpay-bg);
+    margin: 0 auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--starpay-text-main);
+    padding: var(--starpay-padding);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: var(--starpay-grey-light);
+    overflow: hidden;
+}
+
+.greeting {
+    display: flex;
+    flex-direction: column;
+}
+
+.greetingLabel {
+    color: var(--starpay-text-mute);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.userName {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.notificationBtn {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid rgba(91, 101, 137, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notificationBtn:hover {
+    background-color: var(--starpay-grey-light);
+}
+
+.cardsContainer {
+    display: flex;
+    gap: 16px;
+    margin: 0 -24px;
+    padding: 0 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.cardsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    min-width: 201px;
+    height: 256px;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardBalance {
+    background-color: var(--starpay-purple-light);
+}
+
+.cardVisa {
+    background-color: var(--starpay-peach);
+}
+
+.cardLabel {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.cardAmount {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 12px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.cardAmount::before {
+    content: '$';
+    font-size: 18px;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+.cardNumber {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--starpay-text-mute);
+    opacity: 0.8;
+}
+
+.quickActions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.actionItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.actionIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--starpay-grey-light);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.actionIcon:hover {
+    transform: scale(1.05);
+}
+
+.actionIcon.primary {
+    background-color: var(--starpay-purple);
+    color: white;
+}
+
+.actionLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--starpay-text-main);
+}
+
+.transactionsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.viewAll {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--starpay-text-sec);
+    cursor: pointer;
+}
+
+.transactionList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transactionDate {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--starpay-text-mute);
+    margin-top: 8px;
+}
+
+.transactionItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.transInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.transIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: var(--starpay-grey-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.transTitle {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.transCategory {
+    font-size: 13px;
+    color: var(--starpay-text-mute);
+}
+
+.transAmount {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.transAmount.expense {
+    color: var(--starpay-red);
+}
+
+.transAmount::before {
+    content: '$';
+}
+
+.transAmount.income {
+    color: #27AE60;
+}
+
+
+.onboarding {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #040d21;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 24px 40px;
+    box-sizing: border-box;
+}
+
+.gradient {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(17, 98, 212, 0.4) 0%, rgba(4, 13, 33, 0) 70%);
+    filter: blur(40px);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.illustrationContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.illustration {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.textSection {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.getStartedBtn {
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(29, 78, 216, 0.3);
+    transition: all 0.3s ease;
+}
+
+.getStartedBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(29, 78, 216, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.getStartedBtn:active {
+    transform: translateY(0);
+}

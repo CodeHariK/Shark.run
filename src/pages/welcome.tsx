@@ -115,32 +115,6 @@ const Kawaii: Component = () => {
             ]
         },
         {
-            title: 'Pixel Adventure',
-            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
-            tag: 'Game',
-            tagClass: 'game',
-            tagIcon: 'sports_esports',
-            overlayClass: 'kawaii-pink',
-            stack: [
-                { name: 'Unity', class: 'tech-unity' },
-                { name: 'C#', class: 'tech-csharp' },
-            ]
-        },
-        {
-            title: 'E-Shop Redesign',
-            description: 'A complete UX case study and UI redesign for a major fashion e-commerce platform.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
-            tag: 'Design',
-            tagClass: 'design',
-            tagIcon: 'brush',
-            overlayClass: 'kawaii-mint',
-            stack: [
-                { name: 'Figma', class: 'tech-figma' },
-                { name: 'UI/UX', class: 'tech-uiux' },
-            ]
-        },
-        {
             title: 'Foodly Platform',
             description: 'A premium food delivery portfolio showcase with menu management and order tracking.',
             image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWL0YM0AUpQ7SxDv7LnR2auQ01E9moXGjECw&s',
@@ -155,29 +129,112 @@ const Kawaii: Component = () => {
             ]
         },
         {
-            title: 'Portfolio v1',
-            description: 'My first portfolio site built with static HTML/CSS. A look back at where I started.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-i5D1eucxjGnZqzm1Ewv9dJAnOfsstNga81vxLEpurDV6V1RYGAifOuCv7SoTaO76SoJrMSbzZQW8yc83uUKaXsHPBPV1RcYFxRcb6_2T2JfOEymTziYbLcaHYIqbQovECoWFEL7rVZCYWI0kYJB4dzM4OPHhgGH8NeSeo9V3vLcTMHjMJpYugNezM-KAX85DOn49RMBua25naacu1DBsB-240Rjs9SjhPS63IEdV50nZM4g1bkdpYlRNh2Ye-0VBZPF6tOcTHosi',
-            tag: 'Web',
+            title: 'Spacemoon',
+            description: 'Connecting Universes. A Flutter Firebase social networking application.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/codeharik/spacemoon',
+            tag: 'Mobile App',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
+            stack: [
+                { name: 'Flutter', class: 'tech-figma' },
+                { name: 'Firebase', class: 'tech-figma' },
+                { name: 'Dart', class: 'tech-figma' },
+                { name: 'Figma', class: 'tech-figma' },
+                { name: 'UI/UX', class: 'tech-uiux' },
+            ]
+        },
+        {
+            title: 'Pixel Adventure',
+            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
+            tag: 'Game',
+            tagClass: 'game',
+            tagIcon: 'sports_esports',
+            overlayClass: 'kawaii-pink',
+            stack: [
+                { name: 'Unity', class: 'tech-unity' },
+                { name: 'C#', class: 'tech-csharp' },
+            ]
+        },
+        {
+            title: 'Cozy OS',
+            description: 'An engaging 2D platformer game featuring retro graphics and challenging levels.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuUHNdIZUqm1wXlcNN_8uZpzM2FN-UQsgXxSf677x22WxoExNq8rN-nrnDC8YFvhBrR4KNn48P86fbSh79pYUZRQirS6_5Jkjeqxl3gdXgVGNXQd3BA8k8zWdiN426xCtwGYNwbJ_z3fVKhoX6fyuTinYvHjfYBv2cImtUAB9PaQ8c_dd9R9k_Fi_q8y8HacJnD4B3sbZmU_bYj3NQgasl2wNNhQpQqpd5hHo_953ltPVGX5wtxbivdwe7YibEfAZCQekgTzPmSAF8',
+            link: 'cozyos',
+            tag: 'Game',
+            tagClass: 'game',
+            tagIcon: 'sports_esports',
+            overlayClass: 'kawaii-pink',
+            stack: [
+                { name: 'Unity', class: 'tech-unity' },
+                { name: 'C#', class: 'tech-csharp' },
+            ]
+        },
+
+        {
+            title: 'Atlantic',
+            description: 'A complete UX case study and UI redesign for a major fashion e-commerce platform.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/codeharik/atlantic',
+            tag: 'Design',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
+            stack: [
+                { name: 'Golang', class: 'tech-figma' },
+                { name: 'Typescript', class: 'tech-figma' },
+                { name: 'Reactjs', class: 'tech-figma' },
+                { name: 'Figma', class: 'tech-figma' },
+                { name: 'UI/UX', class: 'tech-uiux' },
+            ]
+        },
+
+        {
+            title: 'Fairytales',
+            description: 'A complete UX case study and UI redesign for a major fashion learning management platform.',
+            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiSkZYNdMYmrpfWn4EVhS6yOrX3G5ULVuL4iIEGAh8NP-jDAwIpWppSsMhoPxeN6xrlxh8E9XEGor3rMUgFO0XB81_WwnHXxVWzJ1Wvkfy3_JB-65W11CDU2s-MEvIkGIaprw6ztVi3IPjfhKhHOkj2fANkBz63cGdqOqI-TwZCW1hz4x3xA8T4O-ffD74EFZsYoJYjR_UcaSC59BjPE0O9zfU-AhE7Ngw2sw29v0_snb6NYY-JYLaV3JjkCQDYJmgtuOgu6Z122uB',
+            link: 'https://github.com/codeharik/fairytales',
+            tag: 'Design',
+            tagClass: 'design',
+            tagIcon: 'brush',
+            overlayClass: 'kawaii-mint',
+            stack: [
+                { name: 'Golang', class: 'tech-figma' },
+                { name: 'Typescript', class: 'tech-figma' },
+                { name: 'Reactjs', class: 'tech-figma' },
+                { name: 'Figma', class: 'tech-figma' },
+                { name: 'UI/UX', class: 'tech-uiux' },
+            ]
+        },
+
+        {
+            title: 'Fitness',
+            description: 'Fitness tracker.',
+            image: 'https://s.tmimgcdn.com/scr/1200x750/354400/cute-pink-girl-logo-design_354495-original.jpg',
+            link: '/fitness',
+            tag: 'Mobile App',
             tagClass: 'web-app',
             tagIcon: 'public',
             overlayClass: 'kawaii-purple',
             stack: [
-                { name: 'HTML5', class: 'tech-html5' },
+                { name: 'React Native', class: 'tech-html5' },
                 { name: 'CSS3', class: 'tech-css3' },
             ]
         },
         {
-            title: 'Chat Bot AI',
-            description: 'A natural language processor capable of handling customer support queries with high accuracy.',
-            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2wImmB7xC8axKeS1_aoXV9WF1chXHccSeWbrzV6g1-qqf_azWTlBpPl8aoxoUgXozoUrYRyWFb8VDFMFCgB2YKjpYRs7rlnGoJ5GMuL_m4FzZmsnHlrS_YXptTHHMDJbXDq-WfDayA7wARrPyQdpwWo2cyG07jfAt-JSW9Npi1v0rFFjG5YLQ4pyuF7zKkHJCQCT8_KSbU4crf1wOrogFz9AnkpTSBj0qUf8kfWQQpTb-fR7I0Q2oGS3iICvp7_kANunf77Zk7F1u',
-            tag: 'AI',
+            title: 'Starpay',
+            description: 'Payment tracking app',
+            image: 'https://consumersiteimages.trustpilot.net/business-units/5ea448441ff47a0001f6553c-198x149-1x.jpg',
+            link: '/starpay',
+            tag: 'Mobile App',
             tagClass: 'ai',
             tagIcon: 'smart_toy',
             overlayClass: 'kawaii-pink',
             stack: [
-                { name: 'Python', class: 'tech-python' },
-                { name: 'TensorFlow', class: 'tech-tensorflow' },
+                { name: 'React Native', class: 'tech-python' },
+                { name: 'Typescript', class: 'tech-tensorflow' },
             ]
         },
     ];
@@ -224,7 +281,10 @@ const Kawaii: Component = () => {
                                 <h1>Hello my name is <span>Shark.cat</span></h1>
                             </div>
                             <p class={styles["kawaii-hero-description"]}>
-                                Welcome to my cozy corner of the internet! Here are the cute apps, playful games, and web experiments I've created with love. 🌸
+                                I am Developer
+                            </p>
+                            <p class={styles["kawaii-hero-description"]}>
+                                Welcome to my cozy corner of the internet! Here are the cute apps, playful games, and web experiments I've created. 🌸
                             </p>
                         </div>
 

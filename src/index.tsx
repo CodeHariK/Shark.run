@@ -20,6 +20,8 @@ import BadgeHunt from "./pages/BadgeHunt";
 import Foodly from "./projects/foodly/Foodly";
 import WonderKids from "./projects/wonderkids/WonderKids";
 import TravelLanding from "./pages/TravelLanding";
+import FitnessApp from "./projects/fitness/FitnessApp";
+import StarpayHome from "./projects/starpay/starpay";
 
 render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
     <Router base="/">
@@ -37,6 +39,8 @@ render(() => <SOL.SolProvider initialData={{ baseroute: "", themes: [] }}>
         <Route path={"/foodly"} component={Foodly} />
         <Route path={"/wonderkids"} component={WonderKids} />
         <Route path={"/travellanding"} component={TravelLanding} />
+        <Route path={"/fitness"} component={FitnessApp} />
+        <Route path={"/starpay"} component={StarpayHome} />
     </Router>
 </SOL.SolProvider>,
     document.body!)

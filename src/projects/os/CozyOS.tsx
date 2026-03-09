@@ -1,5 +1,6 @@
 import { createSignal, onMount, onCleanup, Component } from 'solid-js';
 import styles from './CozyOS.module.css';
+import ProjectHeader from '../../components/ProjectHeader';
 
 const CozyOS: Component = () => {
     const [time, setTime] = createSignal<string>('12:00 PM');
@@ -47,6 +48,7 @@ const CozyOS: Component = () => {
 
     return (
         <main class={styles.desktopContainer}>
+            <ProjectHeader />
 
             {/* Desktop Icons Area */}
             <section class={styles.desktopIcons} aria-label="desktop-file-system">
@@ -57,11 +59,13 @@ const CozyOS: Component = () => {
                     onDblClick={() => handleInteraction('Journal')}
                     onTouchEnd={() => handleTouchEnd('Journal')}
                 >
-                    <div class={`${styles.iconBox} ${styles.journalBox}`}>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                    </div>
+                    <a href="/cozyfeed">
+                        <div class={`${styles.iconBox} ${styles.journalBox}`}>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </div>
+                    </a>
                     <span class={styles.iconLabel}>Journal</span>
                 </button>
 

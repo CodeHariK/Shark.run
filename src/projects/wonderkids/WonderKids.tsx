@@ -1,6 +1,7 @@
 import { Component } from 'solid-js';
 import styles from './WonderKids.module.css';
 import { ThemeToggle } from 'solgaleo';
+import ProjectHeader from '../../components/ProjectHeader';
 
 const WonderKids: Component = () => {
     const imgDog = "https://static.vecteezy.com/system/resources/previews/002/047/580/large_2x/animal-illustration-with-cute-little-dog-vector.jpg";
@@ -8,6 +9,7 @@ const WonderKids: Component = () => {
 
     return (
         <div class={styles.pageWrapper}>
+            <ProjectHeader />
 
             {/* HEADER */}
             <div class={styles.container}>

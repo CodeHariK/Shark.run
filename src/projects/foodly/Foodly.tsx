@@ -14,6 +14,7 @@ import styles from './Foodly.module.css';
 import themeStyles from './FoodlyTheme.module.css';
 import { ThemeToggle } from 'solgaleo';
 import { FoodlyMenuSection } from './FoodMenuSection';
+import ProjectHeader from '../../components/ProjectHeader';
 
 const Foodly: Component = () => {
 
@@ -24,6 +25,7 @@ const Foodly: Component = () => {
 
     return (
         <div class={`${styles.foodlyWrapper} ${themeStyles.foodlyTheme}`} style={{ "overflow-y": "auto", height: "100vh" }}>
+            <ProjectHeader />
             <div class={styles.appContainer} style={{ "flex-direction": "column", "gap": "4rem", "padding": "2rem" }}>
 
                 {/* Global Unified Header */}
