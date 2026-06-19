@@ -274,19 +274,19 @@ const Kawaii: Component = () => {
             ]
         },
         {
-            title: 'Starpay',
-            description: 'Payment tracking app',
+            title: 'Logo Color Picker',
+            description: 'Logo Color Picker.',
             image: 'https://consumersiteimages.trustpilot.net/business-units/5ea448441ff47a0001f6553c-198x149-1x.jpg',
-            link: '/starpay',
+            link: '/logopicker',
             tag: 'Mobile App',
             tagClass: 'ai',
             tagIcon: 'smart_toy',
             overlayClass: 'kawaii-pink',
             stack: [
-                { name: 'React Native', class: 'tech-python' },
+                { name: 'React', class: 'tech-python' },
                 { name: 'Typescript', class: 'tech-tensorflow' },
             ]
-        },
+        }
     ];
 
     return (
