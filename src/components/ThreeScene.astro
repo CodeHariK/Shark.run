@@ -1,0 +1,591 @@
+---
+// Original scroll-driven Three.js hero: a low-poly space shark that assembles
+// part-by-part as you scroll. Step 00 is a centered hero; steps 01-04 are
+// left-aligned assembly captions with the shark on the right; step 05 is a
+// full-bleed CTA substep. All geometry generated in code; no external models.
+import Button from "./Button.astro";
+import ButtonLink from "./ButtonLink.astro";
+
+// Assembly captions (steps 01-04). The hero (00) and CTA (05) are rendered
+// separately below.
+const steps = [
+    {
+        n: "01",
+        kicker: "The body",
+        body: "Every game starts with one honest shape.",
+    },
+    {
+        n: "02",
+        kicker: "Fins",
+        body: "Handling before horsepower — feel comes first.",
+    },
+    {
+        n: "03",
+        kicker: "The tail",
+        body: "Thrust. The part that makes it move.",
+    },
+    {
+        n: "04",
+        kicker: "Eyes on",
+        body: "Personality. Now it’s a character. Drag it.",
+    },
+];
+const stepCount = steps.length + 2; // + hero (00) + CTA (05)
+---
+
+<section class="stage" id="stage">
+    <div class="sticky">
+        <canvas id="three-canvas"></canvas>
+
+        <div class="captions" id="captions">
+            <!-- Step 00: centered hero -->
+            <div class="caption hero" data-step="0">
+                <h2 class="hero-title">
+                    Shark<span class="hl">.</span>run
+                </h2>
+                <p class="hero-sub">We build cute, physics-driven games</p>
+                <div class="hero-actions">
+                    <Button id="start" variant="accent">
+                        See what we build
+                    </Button>
+                </div>
+            </div>
+
+            <!-- Steps 01-04: assembly captions -->
+            {steps.map((s, i) => (
+                <div class="caption" data-step={i + 1}>
+                    <span class="kicker">
+                        {s.n} &nbsp;/&nbsp; {s.kicker}
+                    </span>
+                    <p>{s.body}</p>
+                </div>
+            ))}
+
+            <!-- Step 05: assembled + CTA (full-bleed, same as the others) -->
+            <div class="caption cta" data-step="5">
+                <span class="kicker">05 &nbsp;/&nbsp; Shark, assembled</span>
+                <p class="cta-head">
+                    Made of math.
+                    <br />
+                    <span class="hl">Ready to play.</span>
+                </p>
+                <p class="cta-body">
+                    Body, fins, tail and eyes — every piece built from scratch,
+                    the same way we build our games.
+                </p>
+                <div class="btn-row">
+                    <Button href="/blog" variant="dark">
+                        Read the devlog &rarr;
+                    </Button>
+                    <ButtonLink id="rebuild">Build it again &#8635;</ButtonLink>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress">
+            <div class="dots">
+                {Array.from({ length: stepCount }).map((_, i) => (
+                    <span class="dot" data-dot={i} />
+                ))}
+            </div>
+            <span class="counter" id="counter">
+                00 / 05
+            </span>
+        </div>
+
+        <div class="scroll-hint" id="scroll-hint">
+            scroll &darr;
+        </div>
+    </div>
+</section>
+
+<style>
+    .stage {
+        position: relative;
+        height: 620vh;
+    }
+    .sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+    #three-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        cursor: grab;
+        z-index: 2;
+    }
+    .captions {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        color: #0f1120;
+        pointer-events: none;
+    }
+
+    /* Assembly captions (01-04): left-aligned, shark on the right. */
+    .caption {
+        position: absolute;
+        left: 8vw;
+        top: 50%;
+        max-width: min(44vw, 34rem);
+        opacity: 0;
+        transform: translate(0, calc(-50% + 26px));
+        transition:
+            opacity 0.45s ease,
+            transform 0.45s ease;
+    }
+    .caption.active {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+    .caption .kicker {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.7;
+        margin-bottom: 0.6em;
+    }
+    .caption p {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5.5vw, 4rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        color: inherit;
+    }
+    .caption .hl {
+        color: var(--accent);
+    }
+
+    /* Step 00: centered hero. */
+    .caption.hero {
+        left: 50%;
+        right: auto;
+        max-width: min(90vw, 48rem);
+        text-align: center;
+        transform: translate(-50%, calc(-50% + 26px));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .caption.hero.active {
+        transform: translate(-50%, -50%);
+    }
+    .caption.hero .kicker {
+        opacity: 0.85;
+        margin-bottom: 1em;
+    }
+    .hero-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(3.2rem, 11vw, 8rem);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        color: inherit;
+    }
+    .hero-title .hl {
+        color: var(--accent);
+    }
+    .hero-sub {
+        margin: 1.1em 0 0;
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+        line-height: 1.55;
+        letter-spacing: 0;
+        opacity: 0.9;
+        color: inherit;
+    }
+    .hero-actions {
+        margin-top: 2.6em;
+        pointer-events: auto;
+    }
+    .credit {
+        margin: 2.4em 0 0;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        opacity: 0.7;
+        color: inherit;
+    }
+
+    /* Step 05: CTA. */
+    .caption .cta-body {
+        font-family: var(--font-body);
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.6;
+        max-width: 34ch;
+        margin-top: 0.9em;
+        opacity: 0.85;
+    }
+    .btn-row {
+        display: flex;
+        align-items: center;
+        gap: 1.4em;
+        margin-top: 1.8em;
+        flex-wrap: wrap;
+        pointer-events: auto;
+    }
+
+    .progress {
+        position: absolute;
+        top: 50%;
+        right: 2.4vw;
+        transform: translateY(-50%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .dots {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7em;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        opacity: 0.35;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    .dot.active {
+        opacity: 1;
+        transform: scale(1.6);
+        color: #fff;
+    }
+    .counter {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        writing-mode: vertical-rl;
+    }
+    .scroll-hint {
+        position: absolute;
+        bottom: 2.2vh;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(15, 17, 32, 0.65);
+        transition: opacity 0.3s ease;
+    }
+    @media (max-width: 760px) {
+        .progress {
+            display: none;
+        }
+        .caption {
+            max-width: 84vw;
+        }
+        .caption p {
+            font-size: clamp(1.6rem, 8vw, 2.6rem);
+        }
+        .caption.hero {
+            max-width: 90vw;
+        }
+    }
+</style>
+
+<script>
+    import * as THREE from "three";
+
+    const canvas = document.getElementById(
+        "three-canvas",
+    ) as HTMLCanvasElement | null;
+    const stage = document.getElementById("stage");
+
+    // "Let's build it" — scroll into the assembly.
+    document.getElementById("start")?.addEventListener("click", () => {
+        window.scrollTo({
+            top: Math.round(window.innerHeight * 1.4),
+            behavior: "smooth",
+        });
+    });
+    // "Build it again" — scroll back to the top so the assembly replays.
+    document.getElementById("rebuild")?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    if (canvas && stage) init(canvas, stage);
+
+    function clamp(x: number, a: number, b: number) {
+        return Math.min(b, Math.max(a, x));
+    }
+    function smoothstep(a: number, b: number, x: number) {
+        const t = clamp((x - a) / (b - a), 0, 1);
+        return t * t * (3 - 2 * t);
+    }
+
+    function init(canvas: HTMLCanvasElement, stage: HTMLElement) {
+        let renderer: THREE.WebGLRenderer;
+        try {
+            renderer = new THREE.WebGLRenderer({
+                canvas,
+                antialias: true,
+                alpha: true,
+            });
+        } catch {
+            return;
+        }
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+        camera.position.set(0, 0.3, 7.5);
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+        const key = new THREE.DirectionalLight(0xffffff, 1.5);
+        key.position.set(4, 6, 5);
+        scene.add(key);
+        const rim = new THREE.DirectionalLight(0x8b7bff, 1.2);
+        rim.position.set(-5, -2, -4);
+        scene.add(rim);
+
+        const bodyMat = new THREE.MeshStandardMaterial({
+            color: 0x4dd6c1,
+            flatShading: true,
+            roughness: 0.55,
+            metalness: 0.1,
+        });
+        const bellyMat = new THREE.MeshStandardMaterial({
+            color: 0xeaf7f4,
+            flatShading: true,
+            roughness: 0.7,
+        });
+        const finMat = new THREE.MeshStandardMaterial({
+            color: 0x3bb6a3,
+            flatShading: true,
+            roughness: 0.5,
+        });
+        const darkMat = new THREE.MeshStandardMaterial({
+            color: 0x1c2030,
+            flatShading: true,
+        });
+
+        const shark = new THREE.Group();
+        scene.add(shark);
+
+        type Part = {
+            mesh: THREE.Mesh;
+            pos: THREE.Vector3;
+            rot: THREE.Euler;
+            scl: THREE.Vector3;
+            from: THREE.Vector3;
+            range: [number, number];
+        };
+        const parts: Part[] = [];
+        const add = (
+            mesh: THREE.Mesh,
+            pos: [number, number, number],
+            rot: [number, number, number],
+            scl: [number, number, number],
+            from: [number, number, number],
+            range: [number, number],
+        ) => {
+            shark.add(mesh);
+            parts.push({
+                mesh,
+                pos: new THREE.Vector3(...pos),
+                rot: new THREE.Euler(...rot),
+                scl: new THREE.Vector3(...scl),
+                from: new THREE.Vector3(...from),
+                range,
+            });
+        };
+
+        // Ranges compressed into 0.16..0.82 so the shark holds off during the
+        // hero (step 0) and is fully assembled before the CTA substep (step 5).
+        add(
+            new THREE.Mesh(new THREE.SphereGeometry(1, 10, 8), bodyMat),
+            [0, 0, 0],
+            [0, 0, 0],
+            [2.3, 1, 1],
+            [0, 0, -6],
+            [0.18, 0.32],
+        );
+        add(
+            new THREE.Mesh(new THREE.SphereGeometry(0.96, 10, 6), bellyMat),
+            [0, -0.28, 0],
+            [0, 0, 0],
+            [2.2, 0.7, 0.95],
+            [0, -2, 0],
+            [0.2, 0.34],
+        );
+        add(
+            new THREE.Mesh(new THREE.ConeGeometry(0.85, 1.6, 8), bodyMat),
+            [2.5, 0, 0],
+            [0, 0, -Math.PI / 2],
+            [1, 1, 1],
+            [4, 0, 0],
+            [0.24, 0.36],
+        );
+        add(
+            new THREE.Mesh(new THREE.ConeGeometry(0.5, 1.2, 4), finMat),
+            [-0.1, 1.15, 0],
+            [0, 0, -0.25],
+            [1, 1, 0.35],
+            [0, 3, 0],
+            [0.36, 0.5],
+        );
+        const pecGeo = new THREE.ConeGeometry(0.45, 1.1, 4);
+        add(
+            new THREE.Mesh(pecGeo, finMat),
+            [0.6, -0.5, 0.9],
+            [Math.PI / 2, 0, -0.6],
+            [1, 1, 0.3],
+            [0, 0, 4],
+            [0.4, 0.54],
+        );
+        add(
+            new THREE.Mesh(pecGeo, finMat),
+            [0.6, -0.5, -0.9],
+            [-Math.PI / 2, 0, -0.6],
+            [1, 1, 0.3],
+            [0, 0, -4],
+            [0.4, 0.54],
+        );
+        add(
+            new THREE.Mesh(new THREE.ConeGeometry(0.8, 1.4, 6), bodyMat),
+            [-2.4, 0, 0],
+            [0, 0, Math.PI / 2],
+            [1, 1, 1],
+            [-4, 0, 0],
+            [0.52, 0.66],
+        );
+        const tailFinGeo = new THREE.ConeGeometry(0.28, 1.5, 4);
+        add(
+            new THREE.Mesh(tailFinGeo, finMat),
+            [-3.2, 0.75, 0],
+            [0, 0, -0.5],
+            [1, 1, 1],
+            [-5, 1, 0],
+            [0.56, 0.7],
+        );
+        add(
+            new THREE.Mesh(tailFinGeo, finMat),
+            [-3.2, -0.7, 0],
+            [0, 0, Math.PI + 0.5],
+            [1, 1, 1],
+            [-5, -1, 0],
+            [0.56, 0.7],
+        );
+        const eyeGeo = new THREE.SphereGeometry(0.13, 8, 8);
+        add(
+            new THREE.Mesh(eyeGeo, darkMat),
+            [2.15, 0.28, 0.55],
+            [0, 0, 0],
+            [1, 1, 1],
+            [0, 2, 0],
+            [0.68, 0.82],
+        );
+        add(
+            new THREE.Mesh(eyeGeo, darkMat),
+            [2.15, 0.28, -0.55],
+            [0, 0, 0],
+            [1, 1, 1],
+            [0, 2, 0],
+            [0.68, 0.82],
+        );
+
+        const captions = Array.from(
+            document.querySelectorAll<HTMLElement>(".caption"),
+        );
+        const dots = Array.from(document.querySelectorAll<HTMLElement>(".dot"));
+        const counter = document.getElementById("counter");
+        const hint = document.getElementById("scroll-hint");
+
+        let progress = 0;
+        let offsetX = 0;
+        const reduce = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
+        let dragRY = 0;
+        let dragging = false;
+        let lastX = 0;
+
+        canvas.addEventListener("pointerdown", (e) => {
+            dragging = true;
+            lastX = e.clientX;
+            canvas.style.cursor = "grabbing";
+        });
+        window.addEventListener("pointerup", () => {
+            dragging = false;
+            canvas.style.cursor = "grab";
+        });
+        window.addEventListener("pointermove", (e) => {
+            if (dragging) dragRY += (e.clientX - lastX) * 0.01;
+            lastX = e.clientX;
+        });
+
+        function onScroll() {
+            const rect = stage.getBoundingClientRect();
+            const total = stage.offsetHeight - window.innerHeight;
+            progress = clamp(-rect.top / total, 0, 1);
+            const step = Math.min(5, Math.floor(progress * 6));
+            captions.forEach((c, i) =>
+                c.classList.toggle("active", i === step),
+            );
+            dots.forEach((d, i) => d.classList.toggle("active", i === step));
+            if (counter) counter.textContent = `0${step} / 05`;
+            if (hint) hint.style.opacity = progress > 0.03 ? "0" : "1";
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        function resize() {
+            const w = canvas.clientWidth;
+            const h = canvas.clientHeight;
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            offsetX = w / h > 1 ? 1.7 : 0;
+        }
+        resize();
+        window.addEventListener("resize", resize);
+        onScroll();
+
+        const tmp = new THREE.Vector3();
+        const clock = new THREE.Clock();
+        function frame() {
+            const t = clock.getElapsedTime();
+            for (const p of parts) {
+                const a = smoothstep(p.range[0], p.range[1], progress);
+                tmp.copy(p.from).multiplyScalar(1 - a);
+                p.mesh.position.set(
+                    p.pos.x + tmp.x,
+                    p.pos.y + tmp.y,
+                    p.pos.z + tmp.z,
+                );
+                p.mesh.scale.set(a * p.scl.x, a * p.scl.y, a * p.scl.z);
+                p.mesh.rotation.copy(p.rot);
+                const m = p.mesh.material as THREE.MeshStandardMaterial;
+                m.opacity = a;
+                m.transparent = a < 1;
+            }
+            const baseY = -1.1 + progress * 1.4 + dragRY;
+            shark.rotation.y += (baseY - shark.rotation.y) * 0.1;
+            shark.rotation.x = -0.05 + Math.sin(t * 0.6) * 0.04;
+            shark.position.x += (offsetX - shark.position.x) * 0.1;
+            shark.position.y = reduce ? 0 : Math.sin(t * 1.1) * 0.1;
+            renderer.render(scene, camera);
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
+</script>

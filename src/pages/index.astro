@@ -1,0 +1,27 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import ThreeScene from '../components/ThreeScene.astro';
+import WaterBackground from '../components/WaterBackground.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<WaterBackground />
+		<Header />
+
+		<h1 class="sr-only">Shark.run — real-time graphics and game-dev experiments</h1>
+
+		<!-- Full-bleed scroll experience: the shark assembles as you scroll,
+		     and the closing CTA is the final parallax substep. -->
+		<ThreeScene />
+
+		<Footer />
+	</body>
+</html>

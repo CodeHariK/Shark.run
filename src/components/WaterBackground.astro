@@ -1,0 +1,495 @@
+---
+// Full-viewport pastel underwater scene that sits behind the whole page.
+// Cute fish and sharks drift across, kelp sways, bubbles rise. All inline SVG
+// — no image assets. Fixed at z-index:-1 so it never intercepts pointer events
+// and never covers foreground content. Honors prefers-reduced-motion.
+
+type Swimmer = {
+	kind: 'fish' | 'shark';
+	top: number; // vh from top
+	size: number; // px width
+	dur: number; // seconds to cross
+	delay: number; // seconds
+	dir: 'r' | 'l';
+	color: string;
+	dark: string;
+	belly?: string;
+	opacity: number;
+	blur: number; // px (depth)
+	bob: number; // seconds
+};
+
+const swimmers: Swimmer[] = [
+	// Big, slow, hazy sharks in the deep.
+	{ kind: 'shark', top: 62, size: 220, dur: 64, delay: 0, dir: 'r', color: '#b9c8ec', dark: '#93a6d8', belly: '#e7edfb', opacity: 0.5, blur: 2.5, bob: 9 },
+	{ kind: 'shark', top: 34, size: 150, dur: 82, delay: 26, dir: 'l', color: '#c9bef2', dark: '#a794e4', belly: '#efeafd', opacity: 0.4, blur: 3.5, bob: 11 },
+	// Mid-water fish schools.
+	{ kind: 'fish', top: 22, size: 54, dur: 34, delay: 0, dir: 'r', color: '#ffb4a2', dark: '#f28a72', opacity: 0.85, blur: 0, bob: 4.5 },
+	{ kind: 'fish', top: 48, size: 40, dur: 42, delay: 6, dir: 'l', color: '#ffd6a5', dark: '#f4b56b', opacity: 0.85, blur: 0.4, bob: 5.5 },
+	{ kind: 'fish', top: 71, size: 46, dur: 38, delay: 12, dir: 'r', color: '#a8e6cf', dark: '#79cfae', opacity: 0.8, blur: 0.6, bob: 5 },
+	{ kind: 'fish', top: 15, size: 34, dur: 48, delay: 20, dir: 'l', color: '#b5d8ff', dark: '#84b7f0', opacity: 0.75, blur: 1, bob: 6 },
+	{ kind: 'fish', top: 85, size: 38, dur: 44, delay: 3, dir: 'r', color: '#e3c6ff', dark: '#c39bf0', opacity: 0.8, blur: 0.8, bob: 5.2 },
+	{ kind: 'fish', top: 58, size: 30, dur: 52, delay: 30, dir: 'l', color: '#ffc2e0', dark: '#f292c3', opacity: 0.7, blur: 1.2, bob: 6.5 },
+	// A bigger, livelier school.
+	{ kind: 'fish', top: 8, size: 42, dur: 40, delay: 9, dir: 'r', color: '#ffe08a', dark: '#f4c14e', opacity: 0.8, blur: 0.3, bob: 4.8 },
+	{ kind: 'fish', top: 30, size: 28, dur: 46, delay: 17, dir: 'r', color: '#9be7e0', dark: '#6cccc3', opacity: 0.78, blur: 0.9, bob: 5.8 },
+	{ kind: 'fish', top: 40, size: 50, dur: 33, delay: 24, dir: 'l', color: '#ffb4a2', dark: '#f28a72', opacity: 0.85, blur: 0.2, bob: 4.4 },
+	{ kind: 'fish', top: 52, size: 36, dur: 49, delay: 2, dir: 'r', color: '#c8b6ff', dark: '#a488f0', opacity: 0.8, blur: 0.7, bob: 5.4 },
+	{ kind: 'fish', top: 66, size: 32, dur: 43, delay: 14, dir: 'l', color: '#ffd6a5', dark: '#f4b56b', opacity: 0.8, blur: 0.8, bob: 5.6 },
+	{ kind: 'fish', top: 78, size: 44, dur: 37, delay: 21, dir: 'r', color: '#a8e6cf', dark: '#79cfae', opacity: 0.82, blur: 0.5, bob: 5 },
+	{ kind: 'fish', top: 90, size: 30, dur: 51, delay: 7, dir: 'l', color: '#b5d8ff', dark: '#84b7f0', opacity: 0.72, blur: 1.1, bob: 6.2 },
+	{ kind: 'fish', top: 19, size: 26, dur: 55, delay: 33, dir: 'l', color: '#ffc2e0', dark: '#f292c3', opacity: 0.7, blur: 1.3, bob: 6.8 },
+	{ kind: 'fish', top: 63, size: 38, dur: 41, delay: 27, dir: 'r', color: '#e3c6ff', dark: '#c39bf0', opacity: 0.8, blur: 0.6, bob: 5.2 },
+	{ kind: 'fish', top: 46, size: 24, dur: 58, delay: 11, dir: 'r', color: '#ffe08a', dark: '#f4c14e', opacity: 0.68, blur: 1.4, bob: 7 },
+	// One more small shark weaving through the mid-water.
+	{ kind: 'shark', top: 48, size: 120, dur: 74, delay: 40, dir: 'r', color: '#bcd3f0', dark: '#93aede', belly: '#eaf1fc', opacity: 0.42, blur: 3, bob: 10 },
+];
+
+// Kelp blades along the seabed: [left%, height px, delay s, color].
+const kelp: [number, number, number, string][] = [
+	[4, 210, 0, '#8fd3b6'],
+	[11, 150, 1.4, '#a6ddc6'],
+	[19, 240, 0.6, '#7ec9ab'],
+	[78, 180, 0.9, '#9ad8bf'],
+	[88, 230, 2.1, '#82ccae'],
+	[95, 160, 1.1, '#a6ddc6'],
+];
+
+// Rising bubbles: [left%, size px, dur s, delay s].
+const bubbles: [number, number, number, number][] = [
+	[8, 10, 14, 0], [16, 6, 18, 4], [27, 14, 12, 8], [39, 8, 16, 2],
+	[52, 6, 20, 10], [63, 12, 13, 6], [74, 7, 17, 1], [83, 10, 15, 9],
+	[91, 6, 19, 5], [45, 9, 15, 13],
+];
+---
+
+<div class="water" aria-hidden="true">
+	<div class="caustic c1"></div>
+	<div class="caustic c2"></div>
+
+	{
+		swimmers.map((s) => (
+			<div
+				class={`lane lane--${s.dir}`}
+				style={`top:${s.top}vh; width:${s.size}px; --dur:${s.dur}s; --delay:-${s.delay}s; --bob:${s.bob}s; opacity:${Math.min(1, s.opacity + 0.12)}; filter:blur(${(s.blur * 0.4).toFixed(2)}px);`}
+			>
+				<div class="bob" style={`--bob:${s.bob}s`}>
+					<div class="flip">
+						{s.kind === 'fish' ? (
+							<svg viewBox="0 0 60 40" width="100%" height="auto">
+								<path d="M14 20 L2 8 L8 20 L2 32 Z" fill={s.dark} />
+								<ellipse cx="34" cy="20" rx="22" ry="12" fill={s.color} />
+								<path d="M30 9 Q34 1 40 8 Z" fill={s.dark} />
+								<path d="M34 26 Q34 34 43 30 Z" fill={s.dark} opacity="0.85" />
+								<circle cx="48" cy="17" r="2.3" fill="#1c2030" />
+								<circle cx="48.8" cy="16.2" r="0.8" fill="#fff" />
+							</svg>
+						) : (
+							<svg viewBox="0 0 100 56" width="100%" height="auto">
+								<path d="M18 28 L2 12 L12 28 L2 44 Z" fill={s.dark} />
+								<path d="M18 28 Q30 8 72 18 Q92 22 96 28 Q92 34 72 38 Q30 48 18 28 Z" fill={s.color} />
+								<path d="M30 38 Q55 47 82 35 Q60 44 30 38 Z" fill={s.belly} opacity="0.9" />
+								<path d="M50 16 Q58 2 67 15 Z" fill={s.dark} />
+								<path d="M54 37 Q56 49 68 41 Z" fill={s.dark} opacity="0.9" />
+								<circle cx="84" cy="26" r="2.6" fill="#1c2030" />
+								<circle cx="85" cy="25" r="0.9" fill="#fff" />
+							</svg>
+						)}
+					</div>
+				</div>
+			</div>
+		))
+	}
+
+	<div class="seabed">
+		{
+			kelp.map(([left, h, delay, color]) => (
+				<svg
+					class="kelp"
+					style={`left:${left}%; height:${h}px; --kdelay:${delay}s`}
+					viewBox="0 0 24 240"
+					preserveAspectRatio="none"
+				>
+					<path
+						d="M12 240 C4 190 20 160 12 120 C4 82 20 54 12 0"
+						stroke={color}
+						stroke-width="9"
+						stroke-linecap="round"
+						fill="none"
+					/>
+				</svg>
+			))
+		}
+	</div>
+
+	{
+		bubbles.map(([left, size, dur, delay]) => (
+			<span
+				class="bubble"
+				style={`left:${left}%; width:${size}px; height:${size}px; --bdur:${dur}s; --bdelay:${delay}s`}
+			/>
+		))
+	}
+
+	<!-- Floating UFO: cruises in near the top, beams up a fish, sails away. -->
+	<div class="ufo">
+		<div class="ufo-bob">
+			<div class="beam"></div>
+			<!-- fish being abducted -->
+			<svg class="caught" viewBox="0 0 60 40" width="34" height="auto">
+				<path d="M14 20 L2 8 L8 20 L2 32 Z" fill="#f28a72" />
+				<ellipse cx="34" cy="20" rx="22" ry="12" fill="#ffb4a2" />
+				<path d="M30 9 Q34 1 40 8 Z" fill="#f28a72" />
+				<circle cx="48" cy="17" r="2.3" fill="#1c2030" />
+				<circle cx="48.8" cy="16.2" r="0.8" fill="#fff" />
+			</svg>
+			<svg class="saucer" viewBox="0 0 120 62" width="130" height="auto">
+				<ellipse cx="60" cy="46" rx="16" ry="5" fill="rgba(160,190,255,0.25)" />
+				<ellipse cx="60" cy="38" rx="54" ry="15" fill="#aeb9e6" />
+				<ellipse cx="60" cy="34" rx="54" ry="11" fill="#c8d1f2" />
+				<circle cx="26" cy="37" r="3.2" class="lamp l1" />
+				<circle cx="44" cy="40" r="3.2" class="lamp l2" />
+				<circle cx="60" cy="41" r="3.2" class="lamp l3" />
+				<circle cx="76" cy="40" r="3.2" class="lamp l2" />
+				<circle cx="94" cy="37" r="3.2" class="lamp l1" />
+				<ellipse cx="60" cy="24" rx="27" ry="19" fill="#d9d2ff" />
+				<ellipse cx="60" cy="22" rx="24" ry="16" fill="#ece8ff" opacity="0.75" />
+				<ellipse cx="50" cy="16" rx="7" ry="4" fill="#ffffff" opacity="0.85" />
+			</svg>
+		</div>
+	</div>
+</div>
+
+<style>
+	.water {
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		overflow: hidden;
+		pointer-events: none;
+		background: linear-gradient(
+			180deg,
+			#eaf7fb 0%,
+			#d6eef4 32%,
+			#c2e4ee 60%,
+			#a9d6e6 100%
+		);
+	}
+
+	/* Soft caustic light pooling near the surface. */
+	.caustic {
+		position: absolute;
+		inset: -20% -10%;
+		background: radial-gradient(
+			40% 30% at 50% 0%,
+			rgba(255, 255, 255, 0.5),
+			transparent 70%
+		);
+		mix-blend-mode: screen;
+		will-change: transform, opacity;
+	}
+	.c1 {
+		animation: drift 22s ease-in-out infinite;
+	}
+	.c2 {
+		background: radial-gradient(
+			35% 26% at 70% 4%,
+			rgba(255, 255, 255, 0.35),
+			transparent 70%
+		);
+		animation: drift 30s ease-in-out infinite reverse;
+	}
+
+	.lane {
+		position: absolute;
+		left: 0;
+		will-change: transform;
+	}
+	.lane--r {
+		animation: swimR var(--dur) linear var(--delay) infinite;
+	}
+	.lane--l {
+		animation: swimL var(--dur) linear var(--delay) infinite;
+	}
+	.bob {
+		animation: bob var(--bob) ease-in-out infinite;
+	}
+	.lane--l .flip {
+		transform: scaleX(-1);
+	}
+	.lane svg {
+		display: block;
+		filter: drop-shadow(0 6px 10px rgba(30, 50, 80, 0.16));
+		transform-origin: 20% 50%; /* pivot near the tail */
+		animation: wiggle calc(var(--bob, 5s) / 3.2) ease-in-out infinite;
+	}
+
+	.seabed {
+		position: absolute;
+		inset: auto 0 0 0;
+		height: 0;
+	}
+	.kelp {
+		position: absolute;
+		bottom: -10px;
+		width: 26px;
+		transform-origin: bottom center;
+		animation: sway 7s ease-in-out infinite var(--kdelay);
+		opacity: 0.85;
+	}
+
+	.bubble {
+		position: absolute;
+		bottom: -30px;
+		border-radius: 50%;
+		background: radial-gradient(
+			circle at 35% 30%,
+			rgba(255, 255, 255, 0.9),
+			rgba(255, 255, 255, 0.15) 70%,
+			transparent
+		);
+		border: 1px solid rgba(255, 255, 255, 0.4);
+		animation: rise var(--bdur) linear var(--bdelay) infinite;
+		will-change: transform, opacity;
+	}
+
+	@keyframes swimR {
+		from {
+			transform: translateX(-25vw);
+		}
+		to {
+			transform: translateX(125vw);
+		}
+	}
+	@keyframes swimL {
+		from {
+			transform: translateX(125vw);
+		}
+		to {
+			transform: translateX(-25vw);
+		}
+	}
+	@keyframes bob {
+		0%,
+		100% {
+			transform: translateY(-16px) rotate(-5deg);
+		}
+		50% {
+			transform: translateY(16px) rotate(5deg);
+		}
+	}
+	/* Fast tail swish layered on top of the slow bob. */
+	@keyframes wiggle {
+		0%,
+		100% {
+			transform: rotate(-4deg) skewX(3deg);
+		}
+		50% {
+			transform: rotate(4deg) skewX(-3deg);
+		}
+	}
+	@keyframes sway {
+		0%,
+		100% {
+			transform: rotate(-4deg);
+		}
+		50% {
+			transform: rotate(4deg);
+		}
+	}
+	@keyframes rise {
+		0% {
+			transform: translateY(0) translateX(0);
+			opacity: 0;
+		}
+		12% {
+			opacity: 0.8;
+		}
+		90% {
+			opacity: 0.7;
+		}
+		100% {
+			transform: translateY(-112vh) translateX(14px);
+			opacity: 0;
+		}
+	}
+	@keyframes drift {
+		0%,
+		100% {
+			transform: translateX(0);
+			opacity: 0.9;
+		}
+		50% {
+			transform: translateX(6vw);
+			opacity: 0.6;
+		}
+	}
+
+	/* ---- UFO ---- */
+	.ufo {
+		position: absolute;
+		top: 4vh;
+		left: 0;
+		width: 130px;
+		will-change: transform, opacity;
+		animation: ufoTravel 34s ease-in-out infinite;
+	}
+	.ufo-bob {
+		position: relative;
+		animation: ufoBob 3.2s ease-in-out infinite;
+	}
+	.saucer {
+		display: block;
+		filter: drop-shadow(0 8px 14px rgba(60, 70, 120, 0.22));
+	}
+	.lamp {
+		animation: lampBlink 1.4s steps(1) infinite;
+	}
+	.lamp.l2 {
+		animation-delay: 0.45s;
+	}
+	.lamp.l3 {
+		animation-delay: 0.9s;
+	}
+	/* Tractor beam: a downward cone under the saucer. */
+	.beam {
+		position: absolute;
+		top: 40px;
+		left: 50%;
+		width: 80px;
+		height: 150px;
+		transform: translateX(-50%);
+		background: linear-gradient(
+			180deg,
+			rgba(210, 232, 180, 0.55),
+			rgba(210, 232, 180, 0.12) 70%,
+			transparent
+		);
+		clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%);
+		opacity: 0;
+		will-change: opacity;
+		animation: beamPulse 34s ease-in-out infinite;
+	}
+	.caught {
+		position: absolute;
+		top: 150px;
+		left: 50%;
+		width: 34px;
+		transform: translate(-50%, 0);
+		opacity: 0;
+		will-change: transform, opacity;
+		animation: abduct 34s ease-in-out infinite;
+	}
+
+	@keyframes ufoTravel {
+		0% {
+			transform: translateX(-34vw);
+			opacity: 0;
+		}
+		6% {
+			opacity: 1;
+		}
+		20% {
+			transform: translateX(38vw);
+		}
+		48% {
+			transform: translateX(42vw);
+		}
+		62% {
+			transform: translateX(134vw);
+			opacity: 1;
+		}
+		64%,
+		100% {
+			transform: translateX(134vw);
+			opacity: 0;
+		}
+	}
+	@keyframes ufoBob {
+		0%,
+		100% {
+			transform: translateY(-4px);
+		}
+		50% {
+			transform: translateY(4px);
+		}
+	}
+	@keyframes lampBlink {
+		0%,
+		100% {
+			fill: #ffd6a5;
+		}
+		50% {
+			fill: #a8e6cf;
+		}
+	}
+	@keyframes beamPulse {
+		0%,
+		22% {
+			opacity: 0;
+		}
+		26%,
+		44% {
+			opacity: 1;
+		}
+		48%,
+		100% {
+			opacity: 0;
+		}
+	}
+	@keyframes abduct {
+		0%,
+		24% {
+			transform: translate(-50%, 0);
+			opacity: 0;
+		}
+		27% {
+			opacity: 1;
+		}
+		40% {
+			transform: translate(-50%, -132px) scale(0.9);
+			opacity: 1;
+		}
+		45% {
+			transform: translate(-50%, -150px) scale(0.15);
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.lane,
+		.lane svg,
+		.bob,
+		.bubble,
+		.caustic,
+		.ufo,
+		.ufo-bob,
+		.lamp {
+			animation: none;
+		}
+		.ufo {
+			transform: translateX(40vw);
+		}
+		.beam,
+		.caught {
+			display: none;
+		}
+		/* Keep a calm, static scene: park a few swimmers on-screen, hide the
+		   rest so nothing sits frozen off the edge. */
+		.lane {
+			transform: translateX(60vw);
+		}
+		.lane--l {
+			transform: translateX(30vw) scaleX(1);
+		}
+		.bubble {
+			display: none;
+		}
+		.kelp {
+			animation: none;
+		}
+	}
+</style>

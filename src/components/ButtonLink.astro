@@ -1,0 +1,53 @@
+---
+// Underlined text link/button. Renders an <a> when `href` is given, otherwise
+// a <button>. Inherits its color from the surrounding text so it works on both
+// the purple hero and the light sections.
+interface Props {
+	href?: string;
+	id?: string;
+	type?: 'button' | 'submit';
+	target?: string;
+	rel?: string;
+	class?: string;
+}
+const { href, id, type = 'button', target, rel, class: className } = Astro.props;
+const cls = ['btn-link', className].filter(Boolean).join(' ');
+---
+
+{
+	href ? (
+		<a class={cls} href={href} id={id} target={target} rel={rel}>
+			<slot />
+		</a>
+	) : (
+		<button class={cls} id={id} type={type}>
+			<slot />
+		</button>
+	)
+}
+
+<style>
+	.btn-link {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.06em;
+		color: inherit;
+		background: none;
+		border: 0;
+		padding: 0;
+		cursor: pointer;
+		text-decoration: underline;
+		text-underline-offset: 5px;
+		text-decoration-thickness: 1.5px;
+		text-decoration-color: var(--accent);
+		transition: color 0.2s ease;
+	}
+	.btn-link:hover {
+		color: var(--accent);
+	}
+	.btn-link:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+</style>

@@ -1,0 +1,92 @@
+---
+// Filled pill button. Renders an <a> when `href` is given, otherwise a
+// <button>. Variants: dark (default), accent, light.
+interface Props {
+	href?: string;
+	id?: string;
+	type?: 'button' | 'submit';
+	variant?: 'dark' | 'accent' | 'light';
+	target?: string;
+	rel?: string;
+	class?: string;
+}
+const {
+	href,
+	id,
+	type = 'button',
+	variant = 'dark',
+	target,
+	rel,
+	class: className,
+} = Astro.props;
+const cls = ['btn', `btn--${variant}`, className].filter(Boolean).join(' ');
+---
+
+{
+	href ? (
+		<a class={cls} href={href} id={id} target={target} rel={rel}>
+			<slot />
+		</a>
+	) : (
+		<button class={cls} id={id} type={type}>
+			<slot />
+		</button>
+	)
+}
+
+<style>
+	.btn {
+		display: inline-block;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1.05em 2.2em;
+		border-radius: 999px;
+		border: 0;
+		cursor: pointer;
+		transition:
+			transform 0.15s ease,
+			background 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.btn:hover {
+		transform: translateY(-2px);
+	}
+	.btn:active {
+		transform: translateY(0);
+	}
+	.btn:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+
+	/* Dark: near-black pill (works on light or dark backgrounds). */
+	.btn--dark {
+		background: #0f1120;
+		color: #fff;
+	}
+	.btn--dark:hover {
+		background: #23263a;
+	}
+
+	/* Accent: brand purple. */
+	.btn--accent {
+		background: var(--accent);
+		color: #fff;
+	}
+	.btn--accent:hover {
+		background: var(--accent-hover);
+	}
+
+	/* Light: white pill, dark ink — for use over dark/purple hero. */
+	.btn--light {
+		background: #fff;
+		color: #0f1120;
+		box-shadow: 0 10px 30px rgba(15, 17, 32, 0.18);
+	}
+	.btn--light:hover {
+		box-shadow: 0 14px 38px rgba(15, 17, 32, 0.28);
+	}
+</style>

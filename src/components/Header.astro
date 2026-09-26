@@ -1,0 +1,143 @@
+---
+import { SITE_TITLE } from '../consts';
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+	href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="site-header light" id="site-header">
+	<div class="bar">
+		<a class="brand" href="/">SHARK<span>.RUN</span></a>
+
+		<nav class="nav">
+			<a href="/" class:list={[{ active: isActive('/') }]}>Home</a>
+			<a href="/blog" class:list={[{ active: isActive('/blog') }]}>Blog</a>
+			<a href="/about" class:list={[{ active: isActive('/about') }]}>About</a>
+			<a href="https://github.com/CodeHariK" target="_blank" rel="noopener">
+				GitHub <span class="arr">&#8599;</span>
+			</a>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 20;
+		background: transparent;
+		color: #0f1120;
+	}
+	.bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.1em 2.2vw;
+	}
+
+	/* Header is always transparent with dark ink now (light water throughout). */
+	.site-header.dark,
+	.site-header.light {
+		color: #0f1120;
+		background: transparent;
+	}
+
+	.brand {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 0.95rem;
+		letter-spacing: 0.02em;
+		color: inherit;
+		text-decoration: none;
+		border: 2px solid currentColor;
+		border-radius: 8px;
+		padding: 0.35em 0.6em;
+		line-height: 1;
+	}
+	.brand span {
+		opacity: 0.65;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		gap: clamp(1em, 2.4vw, 2.6em);
+	}
+	.nav a {
+		font-family: var(--font-mono);
+		font-size: 0.82rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: inherit;
+		opacity: 0.85;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: opacity 0.2s ease;
+	}
+	.nav a:hover {
+		opacity: 1;
+	}
+	.nav a.active {
+		opacity: 1;
+		text-decoration: underline;
+		text-underline-offset: 6px;
+		text-decoration-thickness: 2px;
+		text-decoration-color: var(--accent);
+	}
+	.arr {
+		font-family: var(--font-body);
+	}
+
+	@media (max-width: 640px) {
+		.nav {
+			gap: 1em;
+		}
+		.nav a {
+			font-size: 0.72rem;
+			letter-spacing: 0.08em;
+		}
+		.brand {
+			font-size: 0.85rem;
+		}
+	}
+</style>
+
+<script>
+	const header = document.getElementById('site-header');
+	const stage = document.getElementById('stage'); // present only on the home page
+
+	function clamp(x: number, a: number, b: number) {
+		return Math.min(b, Math.max(a, x));
+	}
+	function smoothstep(a: number, b: number, x: number) {
+		const t = clamp((x - a) / (b - a), 0, 1);
+		return t * t * (3 - 2 * t);
+	}
+
+	function update() {
+		if (!header) return;
+		if (!stage) {
+			header.classList.add('light');
+			header.classList.remove('dark');
+			return;
+		}
+		const rect = stage.getBoundingClientRect();
+		const total = stage.offsetHeight - window.innerHeight;
+		const p = clamp(-rect.top / total, 0, 1);
+		const lit = smoothstep(0.06, 0.3, p);
+		const pastStage = rect.bottom <= window.innerHeight * 0.5;
+		const light = lit > 0.5 || pastStage;
+		header.classList.toggle('light', light);
+		header.classList.toggle('dark', !light);
+	}
+
+	if (stage) {
+		header?.classList.remove('light');
+		header?.classList.add('dark');
+	}
+	update();
+	window.addEventListener('scroll', update, { passive: true });
+	window.addEventListener('resize', update);
+</script>

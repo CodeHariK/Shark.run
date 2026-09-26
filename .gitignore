@@ -28,3 +28,6 @@ dist-ssr
 # environment variables
 .env
 .env.production
+
+# Astro
+.astro

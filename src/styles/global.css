@@ -1,0 +1,194 @@
+/*
+  Shark.run — original clean light theme with a lilac accent.
+  Big confident type, comfortable reading measure, soft panels.
+  Written from scratch (not derived from any single site's stylesheet).
+*/
+
+:root {
+	--bg: #f5f5fb;
+	--bg-soft: #ffffff;
+	--panel: #ffffff;
+	--fg: #1a1c28;
+	--fg-dim: #5b6072;
+	--border: #e5e4f2;
+	--lilac: #d6d5f9;
+	--accent: #6c5ce7;
+	--accent-hover: #5847d1;
+	--code-bg: #f3f2fc;
+	--font-body:
+		var(--font-atkinson), ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-mono:
+		var(--font-space-mono), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+	--measure: 44rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-body);
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--fg);
+	font-size: 20px;
+	line-height: 1.7;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+}
+
+main {
+	width: var(--measure);
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 5rem 1em 3em; /* top clears the fixed header */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 2rem 0 0.6rem;
+	color: #0f1120;
+	line-height: 1.1;
+	font-family: var(--font-display);
+	font-weight: 700;
+	letter-spacing: -0.03em;
+}
+h1 {
+	font-size: 3em;
+}
+h2 {
+	font-size: 2em;
+}
+h3 {
+	font-size: 1.45em;
+}
+h4 {
+	font-size: 1.2em;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	text-underline-offset: 3px;
+}
+a:hover {
+	color: var(--accent-hover);
+	text-decoration: underline;
+}
+
+p {
+	margin: 0 0 1.2em;
+}
+
+strong,
+b {
+	color: #0f1120;
+	font-weight: 700;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.85em;
+	padding: 0.15em 0.4em;
+	background: var(--code-bg);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	color: var(--accent-hover);
+}
+
+pre {
+	font-family: var(--font-mono);
+	font-size: 0.9rem;
+	line-height: 1.6;
+	padding: 1.25em 1.4em;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	overflow-x: auto;
+	margin: 1.6em 0;
+	box-shadow: 0 8px 24px rgba(108, 92, 231, 0.08);
+}
+pre > code {
+	all: unset;
+	font-family: var(--font-mono);
+}
+
+blockquote {
+	border-left: 3px solid var(--accent);
+	padding: 0.2em 0 0.2em 1.1em;
+	margin: 1.5em 0;
+	color: var(--fg-dim);
+	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--border);
+	margin: 2.5em 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5em 0;
+	font-size: 0.95em;
+}
+th,
+td {
+	border: 1px solid var(--border);
+	padding: 0.5em 0.75em;
+	text-align: left;
+}
+th {
+	background: var(--code-bg);
+}
+
+ul,
+ol {
+	padding-left: 1.4em;
+}
+li {
+	margin: 0.35em 0;
+}
+
+textarea,
+input {
+	font-size: 16px;
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1.5em 1em;
+	}
+	h1 {
+		font-size: 2.2em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

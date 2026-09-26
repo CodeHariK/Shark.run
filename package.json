@@ -1,28 +1,26 @@
 {
-  "name": "shark-run",
-  "private": true,
-  "version": "0.0.0",
+  "name": "astro-tmp",
   "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@rollup/rollup-darwin-x64": "^4.50.2",
-    "@solidjs/router": "^0.15.3",
-    "@types/matter-js": "^0.20.2",
-    "install": "^0.13.0",
-    "matter-js": "^0.20.0",
-    "solgaleo": "link:solgaleo",
-    "solid-js": "^1.9.9",
-    "wgpu-matrix": "^3.4.0"
+    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@types/three": "^0.186.0",
+    "astro": "^7.3.5",
+    "sharp": "^0.35.0",
+    "three": "^0.186.1"
   },
-  "devDependencies": {
-    "@types/bun": "^1.2.22",
-    "@webgpu/types": "^0.1.65",
-    "typescript": "~5.7.3",
-    "vite": "^6.3.6",
-    "vite-plugin-solid": "^2.11.8"
+  "allowScripts": {
+    "esbuild": true
   }
 }

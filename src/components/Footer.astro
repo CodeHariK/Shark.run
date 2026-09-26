@@ -1,0 +1,32 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<span>&copy; {year} Shark.run</span>
+	<a href="https://github.com/CodeHariK" target="_blank" rel="noopener">GitHub &#8599;</a>
+</footer>
+
+<style>
+	footer {
+		max-width: var(--measure);
+		margin: 0 auto;
+		padding: 3em 1em 4em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+		border-top: 1px solid var(--border);
+		color: var(--fg-dim);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.05em;
+	}
+	footer a {
+		color: var(--fg-dim);
+		text-decoration: none;
+	}
+	footer a:hover {
+		color: var(--accent);
+	}
+</style>
